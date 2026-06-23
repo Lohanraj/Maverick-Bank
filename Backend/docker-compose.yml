@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # Database Service (SQL Server)
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: maverick_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=SuperSecurePassword@123
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  # Backend Service (Web API)
+  backend:
+    image: maverick-bank-api:latest
+    build:
+      context: ./MaverickBank.API
+      dockerfile: Dockerfile
+    container_name: maverick_backend
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=database;Database=MaverickBankDB;User Id=sa;Password=SuperSecurePassword@123;Encrypt=False;TrustServerCertificate=True
+      - Jwt__Key=ThisIsMySuperSecureJwtKey123456789
+      - Jwt__Issuer=MaverickBankAPI
+      - Jwt__Audience=MaverickBankUsers
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5000:8080"
+    depends_on:
+      - database
+
+  # Frontend Service (Angular)
+  frontend:
+    image: maverick-bank-ui:latest
+    build:
+      context: ../Frontend
+      dockerfile: Dockerfile
+    container_name: maverick_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mssql_data:

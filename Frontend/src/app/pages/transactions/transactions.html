@@ -1,0 +1,55 @@
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-4">
+      Transaction History
+    </h2>
+
+    <table class="table table-bordered table-hover">
+
+      <thead class="table-dark">
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Type</th>
+
+          <th>Amount</th>
+
+          <th>Description</th>
+
+          <th>Date</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+  @for (transaction of transactions; track transaction.id) {
+
+    <tr>
+
+      <td>{{ transaction.id }}</td>
+
+      <td>{{ transaction.transactionType }}</td>
+
+      <td>₹ {{ transaction.amount }}</td>
+
+      <td>{{ transaction.description }}</td>
+
+      <td>{{ transaction.createdAt | date:'medium' }}</td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+    </table>
+
+  </div>
+
+</div>

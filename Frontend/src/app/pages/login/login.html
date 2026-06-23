@@ -1,0 +1,127 @@
+<div class="auth-bg">
+  <div class="auth-card animate-in">
+
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="auth-logo-icon">
+        <i class="bi bi-bank2"></i>
+      </div>
+    </div>
+    <div class="text-center mb-2">
+      <h1 class="auth-title">Maverick Bank</h1>
+    </div>
+    <p class="auth-subtitle">Sign in to your account to continue</p>
+
+    <!-- Error Alert -->
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      <i class="bi bi-exclamation-circle-fill"></i>
+      {{ errorMessage }}
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label class="form-label">Email Address</label>
+      <div class="input-group-icon">
+        <i class="bi bi-envelope icon"></i>
+        <input
+          id="login-email"
+          type="email"
+          class="form-control"
+          placeholder="Enter your email"
+          [(ngModel)]="email"
+          name="email"
+          autocomplete="email">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <label class="form-label mb-0">Password</label>
+        <a href="#" class="text-primary" style="font-size:12px; text-decoration:none;" (click)="openForgotModal($event)">Forgot password?</a>
+      </div>
+      <div class="input-group-icon">
+        <i class="bi bi-lock icon"></i>
+        <input
+          id="login-password"
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          placeholder="Enter your password"
+          [(ngModel)]="password"
+          name="password"
+          style="padding-right: 44px;"
+          autocomplete="current-password">
+        <i
+          class="bi icon"
+          [class]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+          style="right:14px; left:auto; cursor:pointer;"
+          (click)="showPassword = !showPassword"></i>
+      </div>
+    </div>
+
+    <!-- Login Button -->
+    <button
+      id="login-btn"
+      type="button"
+      class="btn btn-primary btn-full mt-2"
+      (click)="login()"
+      [disabled]="isLoading">
+      <span class="spinner" *ngIf="isLoading"></span>
+      <i class="bi bi-box-arrow-in-right" *ngIf="!isLoading"></i>
+      {{ isLoading ? 'Signing in...' : 'Sign In' }}
+    </button>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Register Link -->
+    <p class="text-center" style="font-size:13px; color: var(--dark-text-dim);">
+      Don't have an account?
+      <a routerLink="/register" class="text-primary" style="font-weight:600; text-decoration:none;"> Create one</a>
+    </p>
+
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" *ngIf="showForgotModal" style="display:flex; align-items:center; justify-content:center; position:fixed; z-index:9999;">
+    <div class="modal-box" style="max-width:400px; width:90%; padding:24px; border-radius:16px;">
+      <div class="modal-title" style="font-size:18px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+        <i class="bi bi-shield-lock" style="color:var(--warning);"></i> Reset Password
+      </div>
+      <p style="font-size:13px; color:var(--dark-text-dim); margin-bottom:20px;">
+        Enter your registered email address to regenerate a new temporary password.
+      </p>
+
+      <!-- Messages -->
+      <div class="alert alert-danger" *ngIf="forgotError" style="font-size:13px; padding:10px; margin-bottom:12px;">
+        <i class="bi bi-exclamation-circle-fill"></i> {{ forgotError }}
+      </div>
+      <div class="alert alert-success" *ngIf="forgotMessage" style="font-size:13px; padding:10px; margin-bottom:12px;">
+        <i class="bi bi-check-circle-fill"></i> {{ forgotMessage }}
+      </div>
+
+      <!-- Temporary Password Result -->
+      <div *ngIf="regeneratedPassword" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); padding:16px; border-radius:8px; margin-bottom:16px; text-align:center;">
+        <div style="font-size:12px; color:var(--warning); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Temporary Password</div>
+        <div style="font-family:monospace; font-size:20px; font-weight:700; color:#fff; user-select:all; cursor:pointer;" title="Click to select">{{ regeneratedPassword }}</div>
+        <div style="font-size:11px; color:var(--dark-text-dim); margin-top:8px;">Use this password to log in and update it in your profile settings.</div>
+      </div>
+
+      <div class="form-group" *ngIf="!regeneratedPassword">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" placeholder="example@maverick.com" [(ngModel)]="forgotEmail">
+      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <button class="btn btn-primary" style="flex:1" (click)="regeneratePassword()" *ngIf="!regeneratedPassword" [disabled]="forgotLoading">
+          <span class="spinner" *ngIf="forgotLoading"></span>
+          {{ forgotLoading ? 'Regenerating...' : 'Regenerate' }}
+        </button>
+        <button class="btn btn-outline" style="flex:1" (click)="closeForgotModal()">
+          {{ regeneratedPassword ? 'Close' : 'Cancel' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

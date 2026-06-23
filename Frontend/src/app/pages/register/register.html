@@ -1,0 +1,147 @@
+<div class="auth-bg" style="padding: 40px 24px;">
+  <div class="auth-card animate-in" style="max-width: 560px;">
+
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="auth-logo-icon"><i class="bi bi-bank2"></i></div>
+    </div>
+    <div class="text-center mb-2">
+      <h1 class="auth-title">Create Account</h1>
+    </div>
+    <p class="auth-subtitle">Join Maverick Bank – fill in your details below</p>
+
+    <!-- Alerts -->
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      <i class="bi bi-exclamation-circle-fill"></i> {{ errorMessage }}
+    </div>
+    <div class="alert alert-success" *ngIf="successMessage">
+      <i class="bi bi-check-circle-fill"></i> {{ successMessage }}
+    </div>
+
+    <!-- Row 1: Full Name + Gender -->
+    <div class="row g-3 mb-0">
+      <div class="col-md-7">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <div class="input-group-icon">
+            <i class="bi bi-person icon"></i>
+            <input type="text" class="form-control" placeholder="Enter full name"
+              [(ngModel)]="fullName" name="fullName">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <select class="form-select" [(ngModel)]="gender" name="gender">
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label class="form-label">Email Address</label>
+      <div class="input-group-icon">
+        <i class="bi bi-envelope icon"></i>
+        <input type="email" class="form-control" placeholder="Enter email address"
+          [(ngModel)]="email" name="email">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <div class="input-group-icon">
+        <i class="bi bi-lock icon"></i>
+        <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+          placeholder="Create a password" [(ngModel)]="password" name="password"
+          (input)="checkPasswordStrength()" style="padding-right: 44px;">
+        <i class="bi icon" [class]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+          style="right:14px; left:auto; cursor:pointer;" (click)="showPassword = !showPassword"></i>
+      </div>
+      <div class="pw-strength-bar" *ngIf="password">
+        <div class="pw-strength-fill"
+          [class]="pwStrength === 'weak' ? 'pw-weak' : pwStrength === 'medium' ? 'pw-medium' : 'pw-strong'">
+        </div>
+      </div>
+      <small style="font-size:11px; color:var(--dark-text-dim);">
+        Minimum 8 chars, include uppercase, number & special character
+      </small>
+    </div>
+
+    <!-- Phone + DOB -->
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <div class="input-group-icon">
+            <i class="bi bi-telephone icon"></i>
+            <input type="tel" class="form-control" placeholder="10-digit mobile"
+              [(ngModel)]="phoneNumber" name="phoneNumber">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" [(ngModel)]="dateOfBirth"
+            name="dateOfBirth" (change)="onDobChange()">
+          <small *ngIf="age !== null" style="font-size:12px; color:var(--success);">
+            Age: {{ age }} years
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <label class="form-label">Address</label>
+      <div class="input-group-icon">
+        <i class="bi bi-geo-alt icon"></i>
+        <input type="text" class="form-control" placeholder="Enter full address"
+          [(ngModel)]="address" name="address">
+      </div>
+    </div>
+
+    <!-- Aadhar + PAN -->
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">Aadhar Number</label>
+          <input type="text" class="form-control" placeholder="12-digit Aadhar"
+            [(ngModel)]="aadharNumber" name="aadharNumber" maxlength="12">
+          <small style="font-size:11px; color:var(--dark-text-dim);">Exactly 12 digits</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">PAN Number</label>
+          <input type="text" class="form-control" placeholder="e.g. ABCDE1234F"
+            [(ngModel)]="panNumber" name="panNumber" maxlength="10"
+            style="text-transform: uppercase;">
+          <small style="font-size:11px; color:var(--dark-text-dim);">10-character PAN</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button type="button" class="btn btn-primary btn-full mt-2"
+      (click)="register()" [disabled]="isLoading">
+      <span class="spinner" *ngIf="isLoading"></span>
+      <i class="bi bi-person-plus" *ngIf="!isLoading"></i>
+      {{ isLoading ? 'Creating Account...' : 'Create Account' }}
+    </button>
+
+    <div class="divider"></div>
+    <p class="text-center" style="font-size:13px; color: var(--dark-text-dim);">
+      Already have an account?
+      <a routerLink="/login" class="text-primary" style="font-weight:600; text-decoration:none;"> Sign in</a>
+    </p>
+
+  </div>
+</div>

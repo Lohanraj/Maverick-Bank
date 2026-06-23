@@ -1,0 +1,303 @@
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-logo">
+        <div class="sidebar-brand-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
+          <i class="bi bi-bank2"></i>
+        </div>
+        <div>
+          <div class="sidebar-brand-name">Maverick Bank</div>
+          <span class="sidebar-brand-tag">Admin Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
+        {{ initials }}
+      </div>
+      <div>
+        <div class="sidebar-user-name">{{ userName }}</div>
+        <div class="sidebar-user-role">System Administrator</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Administration</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">
+        <i class="bi bi-grid-1x2"></i> Overview
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'users'" (click)="activeTab = 'users'">
+        <i class="bi bi-people"></i> User Management
+      </a>
+    </nav>
+
+    <div class="sidebar-logout">
+      <button class="btn btn-outline btn-full btn-sm" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- OVERVIEW -->
+    <div *ngIf="activeTab === 'overview'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Admin Dashboard</h1>
+        <p class="page-subtitle">System administration and user management</p>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-blue"><i class="bi bi-people"></i></div>
+            <div><div class="stat-label">Total Users</div><div class="stat-value">{{ users.length }}</div></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-green"><i class="bi bi-person-check"></i></div>
+            <div><div class="stat-label">Customers</div><div class="stat-value">{{ customerCount }}</div></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-purple"><i class="bi bi-person-badge"></i></div>
+            <div><div class="stat-label">Employees</div><div class="stat-value">{{ employeeCount }}</div></div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-orange"><i class="bi bi-shield-check"></i></div>
+            <div><div class="stat-label">Admins</div><div class="stat-value">{{ adminCount }}</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="cursor:pointer;" (click)="activeTab='users'">
+        <div class="card-body d-flex align-items-center gap-3">
+          <div class="stat-icon stat-icon-blue"><i class="bi bi-people"></i></div>
+          <div>
+            <div style="font-weight:700; font-size:16px;">Manage Users</div>
+            <div style="font-size:13px; color:var(--dark-text-dim);">Create, edit, and deactivate user accounts and bank employees</div>
+          </div>
+          <i class="bi bi-chevron-right ms-auto" style="color:var(--dark-text-dim);"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER MANAGEMENT -->
+    <div *ngIf="activeTab === 'users'" class="animate-in">
+      <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+          <h1 class="page-title">User Management</h1>
+          <p class="page-subtitle">Create, modify, or deactivate user accounts</p>
+        </div>
+        <button class="btn btn-primary" (click)="showAddUserForm = true; showEditUserForm = false; resetForm()">
+          <i class="bi bi-plus-circle"></i> Add User
+        </button>
+      </div>
+
+      <!-- Add User Modal -->
+      <div class="modal-overlay" *ngIf="showAddUserForm">
+        <div class="modal-box" style="max-width:560px; max-height:90vh; overflow-y:auto;">
+          <div class="modal-title"><i class="bi bi-person-plus"></i> Create New User</div>
+          <div class="alert alert-danger" *ngIf="errorMessage"><i class="bi bi-exclamation-circle-fill"></i> {{ errorMessage }}</div>
+          <div class="alert alert-success" *ngIf="successMessage"><i class="bi bi-check-circle-fill"></i> {{ successMessage }}</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" placeholder="Full name" [(ngModel)]="fullName"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Role *</label>
+                <select class="form-select" [(ngModel)]="role">
+                  <option value="Customer">Customer</option>
+                  <option value="Employee">Employee</option>
+                  <option value="Admin">Admin</option>
+                </select></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Email *</label>
+                <input type="email" class="form-control" placeholder="Email address" [(ngModel)]="email"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Password *</label>
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="passwordHash"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phoneNumber"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Gender</label>
+                <select class="form-select" [(ngModel)]="gender">
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select></div>
+            </div>
+            <div class="col-12">
+              <div class="form-group"><label class="form-label">Address</label>
+                <input type="text" class="form-control" placeholder="Address" [(ngModel)]="address"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" [(ngModel)]="dateOfBirth"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Aadhar Number</label>
+                <input type="text" class="form-control" placeholder="12 digits" [(ngModel)]="aadharNumber" maxlength="12"></div>
+            </div>
+            <div class="col-12">
+              <div class="form-group"><label class="form-label">PAN Number</label>
+                <input type="text" class="form-control" placeholder="10 chars" [(ngModel)]="panNumber" maxlength="10"></div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mt-3">
+            <button class="btn btn-primary flex-1" (click)="createUser()" style="flex:1">
+              <i class="bi bi-person-plus"></i> Create User
+            </button>
+            <button class="btn btn-outline" (click)="showAddUserForm = false">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit User Modal -->
+      <div class="modal-overlay" *ngIf="showEditUserForm">
+        <div class="modal-box" style="max-width:560px; max-height:90vh; overflow-y:auto;">
+          <div class="modal-title"><i class="bi bi-pencil"></i> Edit User</div>
+          <div class="alert alert-danger" *ngIf="errorMessage"><i class="bi bi-exclamation-circle-fill"></i> {{ errorMessage }}</div>
+          <div class="alert alert-success" *ngIf="successMessage"><i class="bi bi-check-circle-fill"></i> {{ successMessage }}</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Full Name</label>
+                <input type="text" class="form-control" [(ngModel)]="fullName"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Role</label>
+                <select class="form-select" [(ngModel)]="role">
+                  <option value="Customer">Customer</option>
+                  <option value="Employee">Employee</option>
+                  <option value="Admin">Admin</option>
+                </select></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="email"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Phone</label>
+                <input type="text" class="form-control" [(ngModel)]="phoneNumber"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Gender</label>
+                <select class="form-select" [(ngModel)]="gender">
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" [(ngModel)]="dateOfBirth"></div>
+            </div>
+            <div class="col-12">
+              <div class="form-group"><label class="form-label">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="address"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">Aadhar Number</label>
+                <input type="text" class="form-control" [(ngModel)]="aadharNumber" maxlength="12"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"><label class="form-label">PAN Number</label>
+                <input type="text" class="form-control" [(ngModel)]="panNumber" maxlength="10"></div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mt-3">
+            <button class="btn btn-success flex-1" (click)="updateUser()" style="flex:1">
+              <i class="bi bi-check-circle"></i> Save Changes
+            </button>
+            <button class="btn btn-outline" (click)="showEditUserForm = false">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Table -->
+      <div class="card" style="background: transparent; border: none; box-shadow: none;">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="user-mgmt-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="user-avatar-wrapper"
+                        [class.user-avatar-admin]="user.role === 'Admin'"
+                        [class.user-avatar-employee]="user.role === 'Employee'"
+                        [class.user-avatar-customer]="user.role === 'Customer'">
+                        {{ user.fullName?.[0] || 'U' }}
+                      </div>
+                      <span style="font-weight:600; font-size:13px; color:var(--dark-text);">{{ user.fullName }}</span>
+                    </div>
+                  </td>
+                  <td style="font-size:13px; color:var(--dark-text-dim);">{{ user.email }}</td>
+                  <td>
+                    <span class="role-badge"
+                      [class.role-admin]="user.role === 'Admin'"
+                      [class.role-employee]="user.role === 'Employee'"
+                      [class.role-customer]="user.role === 'Customer'">
+                      {{ user.role }}
+                    </span>
+                  </td>
+                  <td style="font-size:13px; color:var(--dark-text-dim);">{{ user.phoneNumber || '—' }}</td>
+                  <td>
+                    <span class="status-badge" [class.status-active]="user.isActive !== false" [class.status-inactive]="user.isActive === false">
+                      {{ user.isActive !== false ? 'Active' : 'Inactive' }}
+                    </span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-2">
+                      <button class="action-btn-edit" (click)="openEditForm(user)" title="Edit User">
+                        <i class="bi bi-pencil-fill" style="font-size:12px;"></i>
+                      </button>
+                      <button class="action-btn-deactivate" *ngIf="user.isActive !== false" (click)="toggleStatus(user.id)" title="Deactivate User">
+                        <i class="bi bi-person-dash-fill" style="font-size:13px;"></i>
+                      </button>
+                      <button class="action-btn-activate" *ngIf="user.isActive === false" (click)="toggleStatus(user.id)" title="Activate User">
+                        <i class="bi bi-person-check-fill" style="font-size:13px;"></i>
+                      </button>
+                      <button class="action-btn-delete" (click)="deleteUser(user.id)" title="Delete User">
+                        <i class="bi bi-trash-fill" style="font-size:12px;"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="empty-state" *ngIf="users.length === 0">
+            <i class="bi bi-people"></i>
+            <h6>No Users Found</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

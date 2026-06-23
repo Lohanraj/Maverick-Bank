@@ -1,0 +1,1 @@
+/* Account service – placeholder for future expansion */

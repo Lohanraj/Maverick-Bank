@@ -1,0 +1,57 @@
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-4">
+      My Accounts
+    </h2>
+    
+    <p>Total Accounts: {{ accounts.length }}</p>
+
+    <pre>{{ accounts | json }}</pre>
+
+    <table class="table table-bordered table-hover">
+
+      <thead class="table-dark">
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Account Number</th>
+
+          <th>Type</th>
+
+          <th>Balance</th>
+
+          <th>Status</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let account of accounts">
+
+          <td>{{ account.id }}</td>
+
+          <td>{{ account.accountNumber }}</td>
+
+          <td>{{ account.accountType }}</td>
+
+          <td>₹ {{ account.balance }}</td>
+
+          <td>
+            {{ account.isClosed ? 'Closed' : 'Active' }}
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

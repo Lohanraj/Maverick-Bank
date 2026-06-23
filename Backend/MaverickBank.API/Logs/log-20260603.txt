@@ -1,0 +1,809 @@
+2026-06-03 19:00:10.792 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 19:00:12.028 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 19:00:12.034 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 19:00:12.535 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 19:00:12.555 +05:30 [INF] Hosting environment: Development
+2026-06-03 19:00:12.558 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 19:26:53.046 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 19:26:54.551 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 19:26:54.561 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 19:26:54.920 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 19:26:54.925 +05:30 [INF] Hosting environment: Development
+2026-06-03 19:26:54.928 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 19:27:00.339 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 19:27:01.317 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 1026.2203ms
+2026-06-03 19:27:03.775 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 19:27:03.832 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 57.0472ms
+2026-06-03 19:27:03.932 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 19:27:03.946 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 19:27:04.827 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 895.421ms
+2026-06-03 19:27:05.239 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1293.8045ms
+2026-06-03 19:27:05.582 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 19:27:05.688 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.038ms
+2026-06-03 19:27:32.601 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - null null
+2026-06-03 19:27:33.057 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - 404 0 null 456.7347ms
+2026-06-03 19:27:33.073 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: OPTIONS https://localhost:7174/api/v1/Auth/login, Response status code: 404
+2026-06-03 19:28:06.200 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 58
+2026-06-03 19:28:06.316 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:28:06.434 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 19:28:10.083 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:28:10.093 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:28:10.099 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:28:10.103 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:28:12.802 +05:30 [INF] Executed DbCommand (397ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 19:28:14.163 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 19:28:14.206 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 7752.5507ms
+2026-06-03 19:28:14.211 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:28:14.237 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 8049.6635ms
+2026-06-03 19:29:03.801 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - null null
+2026-06-03 19:29:03.847 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - 404 0 null 50.8793ms
+2026-06-03 19:29:03.865 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: OPTIONS https://localhost:7174/api/v1/Auth/login, Response status code: 404
+2026-06-03 19:31:14.705 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 19:31:16.721 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 19:31:16.743 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 19:31:17.441 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 19:31:17.448 +05:30 [INF] Hosting environment: Development
+2026-06-03 19:31:17.452 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 19:31:28.524 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - null null
+2026-06-03 19:31:28.726 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:31:28.747 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - 204 null null 252.9483ms
+2026-06-03 19:31:28.760 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Auth/login - application/json 49
+2026-06-03 19:31:28.779 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:31:29.019 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Auth/login - 404 0 null 258.6458ms
+2026-06-03 19:31:29.034 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7174/api/v1/Auth/login, Response status code: 404
+2026-06-03 19:31:46.860 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - null null
+2026-06-03 19:31:46.872 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:31:46.874 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Auth/login - 204 null null 14.6293ms
+2026-06-03 19:31:46.880 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Auth/login - application/json 49
+2026-06-03 19:31:46.889 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:31:46.897 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Auth/login - 404 0 null 18.7431ms
+2026-06-03 19:31:46.923 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7174/api/v1/Auth/login, Response status code: 404
+2026-06-03 19:34:13.430 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - null null
+2026-06-03 19:34:13.496 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:34:13.502 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - 204 null null 155.034ms
+2026-06-03 19:34:13.508 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 49
+2026-06-03 19:34:13.698 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:34:13.727 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:34:13.936 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 19:34:16.182 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:34:16.192 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:34:16.201 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:34:16.207 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 19:34:17.458 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 49
+2026-06-03 19:34:17.466 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:34:17.468 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:34:17.474 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 19:34:19.245 +05:30 [INF] Executed DbCommand (353ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 19:34:19.245 +05:30 [INF] Executed DbCommand (353ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 19:34:21.197 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 19:34:21.197 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 19:34:21.247 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 7289.5636ms
+2026-06-03 19:34:21.247 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 3753.6491ms
+2026-06-03 19:34:21.272 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:34:21.274 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:34:21.302 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 7795.841ms
+2026-06-03 19:34:21.302 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 3844.5567ms
+2026-06-03 19:40:44.688 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - null null
+2026-06-03 19:40:44.722 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:40:44.733 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - 204 null null 108.105ms
+2026-06-03 19:40:44.741 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 49
+2026-06-03 19:40:44.766 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:40:44.786 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:40:44.810 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 19:40:45.413 +05:30 [INF] Executed DbCommand (129ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 19:40:46.070 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 19:40:46.084 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 1263.3372ms
+2026-06-03 19:40:46.093 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:40:46.099 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 1359.5571ms
+2026-06-03 19:41:15.679 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - null null
+2026-06-03 19:41:15.700 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:41:15.702 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/Auth/login - 204 null null 23.2497ms
+2026-06-03 19:41:15.718 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 49
+2026-06-03 19:41:15.754 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:41:15.759 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:41:15.764 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 19:41:15.818 +05:30 [INF] Executed DbCommand (33ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 19:41:16.367 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 19:41:16.375 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 600.9284ms
+2026-06-03 19:41:16.385 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 19:41:16.390 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 672.7908ms
+2026-06-03 19:55:03.046 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/Accounts/myaccounts - null null
+2026-06-03 19:55:03.135 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:55:03.141 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/Accounts/myaccounts - 204 null null 123.3554ms
+2026-06-03 19:55:03.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/Accounts/myaccounts - null null
+2026-06-03 19:55:03.219 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:55:03.553 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/Accounts/myaccounts - 404 0 null 402.5463ms
+2026-06-03 19:55:03.571 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7174/api/Accounts/myaccounts, Response status code: 404
+2026-06-03 19:55:03.975 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/Accounts/myaccounts - null null
+2026-06-03 19:55:04.088 +05:30 [INF] CORS policy execution successful.
+2026-06-03 19:55:04.095 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/Accounts/myaccounts - 404 0 null 120.094ms
+2026-06-03 19:55:04.128 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7174/api/Accounts/myaccounts, Response status code: 404
+2026-06-03 19:59:15.281 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 19:59:16.344 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 19:59:16.349 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 19:59:17.447 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 19:59:17.452 +05:30 [INF] Hosting environment: Development
+2026-06-03 19:59:17.459 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 20:00:42.785 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:00:48.453 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-03 20:00:48.453 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/swagger-ui.css - null null
+2026-06-03 20:00:48.453 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/swagger-ui-bundle.js - null null
+2026-06-03 20:00:48.570 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 5800.8555ms
+2026-06-03 20:00:49.059 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-06-03 20:00:49.176 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger - null null
+2026-06-03 20:00:49.261 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:00:49.842 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:00:49.786 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger - 301 null null 610.0075ms
+2026-06-03 20:00:49.987 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 726.0032ms
+2026-06-03 20:00:49.224 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/swagger-ui.css - 200 152034 text/css 770.4745ms
+2026-06-03 20:00:49.013 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-06-03 20:00:50.012 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:00:50.070 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 231.6697ms
+2026-06-03 20:00:50.262 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:00:50.143 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 1690.405ms
+2026-06-03 20:00:49.951 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-06-03 20:00:50.521 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 261.8296ms
+2026-06-03 20:00:50.589 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 2136.4289ms
+2026-06-03 20:00:51.593 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:00:52.056 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:00:51.793 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1781.5011ms
+2026-06-03 20:00:53.171 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1577.7515ms
+2026-06-03 20:00:52.109 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/favicon-32x32.png - null null
+2026-06-03 20:00:54.209 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2152.423ms
+2026-06-03 20:00:56.075 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-06-03 20:00:56.441 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/favicon-32x32.png - 200 628 image/png 4332.0364ms
+2026-06-03 20:03:22.486 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:03:22.626 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:03:22.641 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 161.7804ms
+2026-06-03 20:03:22.648 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:03:22.703 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:03:23.533 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:03:23.696 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:03:25.422 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:03:25.429 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:03:25.433 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:03:25.440 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:03:28.840 +05:30 [INF] Executed DbCommand (728ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:03:28.924 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:03:29.023 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 5300.4826ms
+2026-06-03 20:03:29.039 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:03:29.074 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 6427.2398ms
+2026-06-03 20:07:08.717 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 58
+2026-06-03 20:07:08.868 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:07:08.873 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:07:08.892 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:07:08.974 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 20:07:09.443 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 20:07:10.201 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 20:07:10.214 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 1234.2073ms
+2026-06-03 20:07:10.217 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:07:10.219 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 1511.2028ms
+2026-06-03 20:07:41.436 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v3/Accounts/myaccounts - null null
+2026-06-03 20:07:41.480 +05:30 [INF] Multiple candidate actions were found, but none matched the requested service API version '3'. Candidate actions: MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)
+2026-06-03 20:07:41.505 +05:30 [INF] Executing endpoint 'Microsoft.AspNetCore.Http.Endpoint'
+2026-06-03 20:07:41.515 +05:30 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Microsoft.AspNetCore.Mvc.Versioning, Version=5.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], Microsoft.AspNetCore.Mvc.Versioning, Version=5.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2026-06-03 20:07:41.525 +05:30 [INF] Executed endpoint 'Microsoft.AspNetCore.Http.Endpoint'
+2026-06-03 20:07:41.528 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v3/Accounts/myaccounts - 400 null application/json; charset=utf-8 92.7973ms
+2026-06-03 20:08:26.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:08:26.906 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:08:26.910 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:08:27.128 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:08:27.132 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:08:27.135 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 220.1577ms
+2026-06-03 20:08:27.138 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:08:27.140 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 273.933ms
+2026-06-03 20:08:48.210 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:08:48.446 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:08:48.509 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 291.041ms
+2026-06-03 20:08:48.530 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:08:48.563 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:08:48.567 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:08:48.576 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:08:48.587 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:08:48.590 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:08:48.592 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 13.5832ms
+2026-06-03 20:08:48.595 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:08:48.596 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 69.5511ms
+2026-06-03 20:10:40.518 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts - application/json 50
+2026-06-03 20:10:40.539 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:10:40.541 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:10:40.546 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:10:40.556 +05:30 [INF] Route matched with {action = "CreateAccount", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(MaverickBank.API.Models.Account) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:10:40.890 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Accounts] ([AccountNumber], [AccountType], [Balance], [CreatedAt], [IsCloseRequested], [IsClosed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-06-03 20:10:41.000 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'MaverickBank.API.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'AccountNumber', table 'MaverickBankDB.dbo.Accounts'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+ClientConnectionId:f1490b54-c6e4-4764-a63c-b4ef4deb2007
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'AccountNumber', table 'MaverickBankDB.dbo.Accounts'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+ClientConnectionId:f1490b54-c6e4-4764-a63c-b4ef4deb2007
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2026-06-03 20:16:04.484 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 20:16:05.635 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 20:16:05.640 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 20:16:06.215 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 20:16:06.219 +05:30 [INF] Hosting environment: Development
+2026-06-03 20:16:06.221 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 20:16:07.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:16:08.370 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 668.654ms
+2026-06-03 20:16:08.478 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:16:08.478 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:16:08.552 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 74.1778ms
+2026-06-03 20:16:08.623 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 144.6974ms
+2026-06-03 20:16:08.955 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:16:09.035 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 81.004ms
+2026-06-03 20:17:05.606 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 58
+2026-06-03 20:17:05.652 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:17:05.653 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:17:05.783 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:17:05.851 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 20:17:06.815 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:17:06.818 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:17:06.822 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:17:06.825 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:17:08.009 +05:30 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 20:17:08.755 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 20:17:08.776 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 2913.226ms
+2026-06-03 20:17:08.778 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:17:08.794 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 3188.3806ms
+2026-06-03 20:18:05.917 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts - application/json 50
+2026-06-03 20:18:05.952 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:18:05.953 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:18:06.026 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:18:06.035 +05:30 [INF] Route matched with {action = "CreateAccount", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(MaverickBank.API.Models.Account) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:18:06.059 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-03 20:18:06.061 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API) in 22.3283ms
+2026-06-03 20:18:06.063 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:18:06.066 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts - 401 null text/plain; charset=utf-8 150.1226ms
+2026-06-03 20:21:30.749 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 20:21:31.815 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-03 20:21:31.819 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-03 20:21:32.449 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 20:21:32.454 +05:30 [INF] Hosting environment: Development
+2026-06-03 20:21:32.459 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank.API
+2026-06-03 20:21:34.791 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:21:35.302 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 534.0553ms
+2026-06-03 20:21:35.360 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:21:35.362 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:21:35.433 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 80.9009ms
+2026-06-03 20:21:35.541 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 179.4316ms
+2026-06-03 20:21:35.616 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:21:35.707 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.4785ms
+2026-06-03 20:21:57.649 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 52
+2026-06-03 20:21:57.687 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:21:57.690 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:21:57.824 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:21:57.873 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 20:21:58.934 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:21:58.941 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:21:58.944 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:21:58.946 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 20:22:00.374 +05:30 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 20:22:00.420 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-03 20:22:00.439 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 2550.231ms
+2026-06-03 20:22:00.442 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:22:00.460 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 401 null text/plain; charset=utf-8 2811.0965ms
+2026-06-03 20:22:04.403 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:22:04.428 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 25.9003ms
+2026-06-03 20:22:04.455 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:22:04.455 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:22:04.476 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 22.5039ms
+2026-06-03 20:22:04.509 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.6ms
+2026-06-03 20:22:04.553 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:22:04.591 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.4593ms
+2026-06-03 20:22:30.929 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 58
+2026-06-03 20:22:30.937 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:22:30.939 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:22:30.943 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:22:30.946 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 20:22:31.003 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 20:22:31.639 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 20:22:31.648 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 699.2123ms
+2026-06-03 20:22:31.652 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:22:31.654 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 725.6659ms
+2026-06-03 20:23:01.680 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts - application/json 50
+2026-06-03 20:23:01.696 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:23:01.697 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:23:01.769 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:23:01.778 +05:30 [INF] Route matched with {action = "CreateAccount", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(MaverickBank.API.Models.Account) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:02.170 +05:30 [INF] Executed DbCommand (55ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Accounts] ([AccountNumber], [AccountType], [Balance], [CreatedAt], [IsCloseRequested], [IsClosed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-06-03 20:23:02.196 +05:30 [INF] Executing OkObjectResult, writing value of type 'MaverickBank.API.Models.Account'.
+2026-06-03 20:23:02.208 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API) in 427.3249ms
+2026-06-03 20:23:02.221 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:23:02.224 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts - 200 null application/json; charset=utf-8 543.9459ms
+2026-06-03 20:23:12.110 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:12.121 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:12.127 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 17.8385ms
+2026-06-03 20:23:12.137 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:12.145 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:12.153 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:12.160 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:12.200 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:12.207 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:12.210 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 39.2982ms
+2026-06-03 20:23:12.214 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:12.218 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 81.1399ms
+2026-06-03 20:23:16.362 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:16.368 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:16.371 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:16.378 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:16.398 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:16.406 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:16.431 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 50.5008ms
+2026-06-03 20:23:16.435 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:16.465 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 102.0627ms
+2026-06-03 20:23:23.345 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.350 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.353 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 7.9903ms
+2026-06-03 20:23:23.361 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.375 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.377 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.379 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:23.389 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:23.393 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:23.395 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 13.8543ms
+2026-06-03 20:23:23.398 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.399 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 38.1971ms
+2026-06-03 20:23:23.463 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.472 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.474 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.475 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:23.481 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:23.484 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:23.488 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 9.4148ms
+2026-06-03 20:23:23.490 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.491 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 28.8371ms
+2026-06-03 20:23:23.601 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.606 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.608 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.611 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:23.615 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:23.619 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:23.622 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 8.86ms
+2026-06-03 20:23:23.624 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.626 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 25.2448ms
+2026-06-03 20:23:23.770 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.774 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.778 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.780 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:23.784 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:23.790 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:23.792 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 10.1429ms
+2026-06-03 20:23:23.794 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.796 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 27.1363ms
+2026-06-03 20:23:23.922 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:23.931 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:23.932 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.935 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:23.941 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:23.944 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:23.946 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 7.3912ms
+2026-06-03 20:23:23.948 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:23.950 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 28.4554ms
+2026-06-03 20:23:24.198 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:24.203 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:24.205 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.207 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:24.212 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:24.214 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:24.216 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 6.2466ms
+2026-06-03 20:23:24.219 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.221 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 23.8757ms
+2026-06-03 20:23:24.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:24.505 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:24.507 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.509 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:24.514 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:24.517 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:24.520 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 9.0336ms
+2026-06-03 20:23:24.522 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.524 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 23.7878ms
+2026-06-03 20:23:24.618 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:24.623 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:24.625 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.628 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:24.632 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:24.637 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:24.639 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 8.5612ms
+2026-06-03 20:23:24.641 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.643 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 24.5922ms
+2026-06-03 20:23:24.837 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:24.843 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:24.845 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.848 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:24.853 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:24.857 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:24.859 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 8.6527ms
+2026-06-03 20:23:24.861 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:24.862 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 26.0985ms
+2026-06-03 20:23:38.890 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:23:38.910 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 20.2238ms
+2026-06-03 20:23:38.935 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:23:38.934 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:23:38.946 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 12.1021ms
+2026-06-03 20:23:38.967 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.7044ms
+2026-06-03 20:23:39.077 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:23:39.089 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.3355ms
+2026-06-03 20:23:41.039 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:41.044 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:41.046 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 6.656ms
+2026-06-03 20:23:55.515 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:55.520 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:55.523 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 7.6999ms
+2026-06-03 20:23:55.529 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:55.536 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:55.539 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.541 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:55.550 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:55.554 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:55.558 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 14.3219ms
+2026-06-03 20:23:55.561 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.562 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 33.6541ms
+2026-06-03 20:23:55.757 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:55.763 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:55.765 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.767 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:55.775 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:55.778 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:55.781 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 9.8589ms
+2026-06-03 20:23:55.783 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.784 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 27.9577ms
+2026-06-03 20:23:55.973 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:23:55.978 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:23:55.980 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.982 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:23:55.987 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:23:55.991 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:23:55.993 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 8.7109ms
+2026-06-03 20:23:55.995 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:23:55.996 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 23.5775ms
+2026-06-03 20:24:25.343 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:24:25.366 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:24:25.368 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 25.3538ms
+2026-06-03 20:24:25.371 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:24:25.381 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:24:25.385 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:24:25.388 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:24:25.417 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:24:25.423 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:24:25.425 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 34.4703ms
+2026-06-03 20:24:25.438 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:24:25.440 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 68.791ms
+2026-06-03 20:31:21.619 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:31:21.654 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:31:21.664 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 46.5384ms
+2026-06-03 20:31:21.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:31:21.693 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:31:21.713 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:31:21.724 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:31:22.118 +05:30 [INF] Executed DbCommand (225ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:31:22.139 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:31:22.150 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 421.0301ms
+2026-06-03 20:31:22.153 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:31:22.156 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 482.7554ms
+2026-06-03 20:31:29.921 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:31:29.940 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:31:29.955 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 33.8024ms
+2026-06-03 20:31:29.958 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:31:29.976 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:31:29.990 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:31:29.992 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:31:30.042 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:31:30.126 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:31:30.136 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 114.1746ms
+2026-06-03 20:31:30.138 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:31:30.140 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 182.6615ms
+2026-06-03 20:32:53.357 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:32:53.398 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:32:53.432 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/myaccounts - 204 null null 75.5568ms
+2026-06-03 20:32:53.520 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - null null
+2026-06-03 20:32:53.528 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:32:53.532 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:32:53.546 +05:30 [INF] Route matched with {action = "GetMyAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMyAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:32:53.594 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[UserId] = @__userId_0
+2026-06-03 20:32:53.600 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 20:32:53.608 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API) in 27.2911ms
+2026-06-03 20:32:53.614 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetMyAccounts (MaverickBank.API)'
+2026-06-03 20:32:53.616 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts/myaccounts - 200 null application/json; charset=utf-8 96.7054ms
+2026-06-03 20:40:44.367 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/transfer - null null
+2026-06-03 20:40:44.384 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:40:44.392 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/transfer - 204 null null 92.5761ms
+2026-06-03 20:40:44.398 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - application/json 57
+2026-06-03 20:40:44.409 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:40:44.415 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:40:44.458 +05:30 [INF] Route matched with {action = "Transfer", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(MaverickBank.API.Models.TransferRequest) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:40:44.608 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[@__request_FromAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_FromAccountId_0
+2026-06-03 20:40:44.620 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__request_ToAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_ToAccountId_0
+2026-06-03 20:40:44.625 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-06-03 20:40:44.628 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API) in 167.5058ms
+2026-06-03 20:40:44.630 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:40:44.631 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - 404 null text/plain; charset=utf-8 233.1363ms
+2026-06-03 20:41:06.589 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/transfer - null null
+2026-06-03 20:41:06.596 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:41:06.598 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/v1/Accounts/transfer - 204 null null 9.9846ms
+2026-06-03 20:41:06.600 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - application/json 57
+2026-06-03 20:41:06.605 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:41:06.607 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:41:06.609 +05:30 [INF] Route matched with {action = "Transfer", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(MaverickBank.API.Models.TransferRequest) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:41:06.620 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__request_FromAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_FromAccountId_0
+2026-06-03 20:41:06.628 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__request_ToAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_ToAccountId_0
+2026-06-03 20:41:06.632 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-06-03 20:41:06.634 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API) in 21.8007ms
+2026-06-03 20:41:06.635 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:41:06.637 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - 404 null text/plain; charset=utf-8 36.8035ms
+2026-06-03 20:45:12.531 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7174/api/Accounts/transfer - null null
+2026-06-03 20:45:12.550 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:45:12.555 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7174/api/Accounts/transfer - 204 null null 81.5104ms
+2026-06-03 20:45:12.559 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Accounts/transfer - application/json 57
+2026-06-03 20:45:12.564 +05:30 [INF] CORS policy execution successful.
+2026-06-03 20:45:12.577 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Accounts/transfer - 404 0 null 18.1185ms
+2026-06-03 20:45:12.592 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7174/api/Accounts/transfer, Response status code: 404
+2026-06-03 20:51:41.017 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - application/json 68
+2026-06-03 20:51:41.026 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:51:41.028 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:51:41.031 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:51:41.037 +05:30 [INF] Route matched with {action = "Transfer", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(MaverickBank.API.Models.TransferRequest) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:51:41.167 +05:30 [INF] Executed DbCommand (59ms) [Parameters=[@__request_FromAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_FromAccountId_0
+2026-06-03 20:51:41.175 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__request_ToAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_ToAccountId_0
+2026-06-03 20:51:41.179 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-06-03 20:51:41.185 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API) in 145.2936ms
+2026-06-03 20:51:41.188 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:51:41.189 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - 404 null text/plain; charset=utf-8 172.3911ms
+2026-06-03 20:51:46.585 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-03 20:51:46.633 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 48.428ms
+2026-06-03 20:51:46.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-03 20:51:46.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 20:51:46.688 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 15.6609ms
+2026-06-03 20:51:46.707 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.9064ms
+2026-06-03 20:51:46.784 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-03 20:51:46.822 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.7797ms
+2026-06-03 20:52:08.865 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/Auth/login - application/json 58
+2026-06-03 20:52:08.872 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:52:08.874 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:52:08.875 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:52:08.877 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MaverickBank.API.Models.LoginRequest) on controller MaverickBank.API.Controllers.AuthController (MaverickBank.API).
+2026-06-03 20:52:08.910 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Address], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-06-03 20:52:09.082 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 20:52:09.085 +05:30 [INF] Executed action MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API) in 204.0735ms
+2026-06-03 20:52:09.087 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AuthController.Login (MaverickBank.API)'
+2026-06-03 20:52:09.089 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/Auth/login - 200 null application/json; charset=utf-8 225.1846ms
+2026-06-03 20:52:57.402 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - application/json 68
+2026-06-03 20:52:57.426 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:52:57.429 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:52:57.432 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:52:57.434 +05:30 [INF] Route matched with {action = "Transfer", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(MaverickBank.API.Models.TransferRequest) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:52:57.443 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__request_FromAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_FromAccountId_0
+2026-06-03 20:52:57.451 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__request_ToAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_ToAccountId_0
+2026-06-03 20:52:57.457 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-06-03 20:52:57.459 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API) in 23.2464ms
+2026-06-03 20:52:57.463 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 20:52:57.465 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - 404 null text/plain; charset=utf-8 63.69ms
+2026-06-03 20:54:09.945 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts - application/json 191
+2026-06-03 20:54:09.969 +05:30 [INF] CORS policy execution failed.
+2026-06-03 20:54:09.970 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 20:54:09.972 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:54:09.974 +05:30 [INF] Route matched with {action = "CreateAccount", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateAccount(MaverickBank.API.Models.Account) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 20:54:10.070 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Accounts] ([AccountNumber], [AccountType], [Balance], [CreatedAt], [IsCloseRequested], [IsClosed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-06-03 20:54:10.074 +05:30 [INF] Executing OkObjectResult, writing value of type 'MaverickBank.API.Models.Account'.
+2026-06-03 20:54:10.077 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API) in 100.7358ms
+2026-06-03 20:54:10.080 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.CreateAccount (MaverickBank.API)'
+2026-06-03 20:54:10.081 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts - 200 null application/json; charset=utf-8 136.1999ms
+2026-06-03 21:11:34.947 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/api/v1/Accounts - null null
+2026-06-03 21:11:35.012 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.GetAccounts (MaverickBank.API)'
+2026-06-03 21:11:35.076 +05:30 [INF] Route matched with {action = "GetAccounts", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAccounts() on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 21:11:35.406 +05:30 [INF] Executed DbCommand (141ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+2026-06-03 21:11:35.418 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MaverickBank.API.Models.Account, MaverickBank.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 21:11:35.427 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.GetAccounts (MaverickBank.API) in 345.7697ms
+2026-06-03 21:11:35.433 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.GetAccounts (MaverickBank.API)'
+2026-06-03 21:11:35.437 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/api/v1/Accounts - 200 null application/json; charset=utf-8 490.8362ms
+2026-06-03 21:13:03.680 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - application/json 62
+2026-06-03 21:13:03.719 +05:30 [INF] CORS policy execution failed.
+2026-06-03 21:13:03.721 +05:30 [INF] Request origin https://localhost:7174 does not have permission to access the resource.
+2026-06-03 21:13:03.723 +05:30 [INF] Executing endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 21:13:03.725 +05:30 [INF] Route matched with {action = "Transfer", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(MaverickBank.API.Models.TransferRequest) on controller MaverickBank.API.Controllers.AccountsController (MaverickBank.API).
+2026-06-03 21:13:03.804 +05:30 [INF] Executed DbCommand (53ms) [Parameters=[@__request_FromAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_FromAccountId_0
+2026-06-03 21:13:03.812 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__request_ToAccountId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[CreatedAt], [a].[IsCloseRequested], [a].[IsClosed], [a].[UserId]
+FROM [Accounts] AS [a]
+WHERE [a].[Id] = @__request_ToAccountId_0
+2026-06-03 21:13:04.077 +05:30 [INF] Executed DbCommand (129ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (Size = 4000), @p13='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Accounts] SET [Balance] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+UPDATE [Accounts] SET [Balance] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+MERGE [Transactions] USING (
+VALUES (@p4, @p5, @p6, @p7, @p8, 0),
+(@p9, @p10, @p11, @p12, @p13, 1)) AS i ([AccountId], [Amount], [CreatedAt], [Description], [TransactionType], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AccountId], [Amount], [CreatedAt], [Description], [TransactionType])
+VALUES (i.[AccountId], i.[Amount], i.[CreatedAt], i.[Description], i.[TransactionType])
+OUTPUT INSERTED.[Id], i._Position;
+2026-06-03 21:13:04.102 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 21:13:04.126 +05:30 [INF] Executed action MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API) in 399.4572ms
+2026-06-03 21:13:04.129 +05:30 [INF] Executed endpoint 'MaverickBank.API.Controllers.AccountsController.Transfer (MaverickBank.API)'
+2026-06-03 21:13:04.130 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7174/api/v1/Accounts/transfer - 200 null application/json; charset=utf-8 454.0343ms

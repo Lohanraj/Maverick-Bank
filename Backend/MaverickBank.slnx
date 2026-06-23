@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MaverickBank.API/MaverickBank.API.csproj" />
+  <Project Path="MaverickBank.Tests/MaverickBank.Tests.csproj" />
+</Solution>
+

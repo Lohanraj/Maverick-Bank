@@ -1,0 +1,1116 @@
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-logo">
+        <div class="sidebar-brand-icon"><i class="bi bi-bank2"></i></div>
+        <div>
+          <div class="sidebar-brand-name">Maverick Bank</div>
+          <span class="sidebar-brand-tag">Secure Banking Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar">{{ initials }}</div>
+      <div style="flex:1">
+        <div class="sidebar-user-name">{{ userName }}</div>
+        <div class="sidebar-user-role">Customer</div>
+      </div>
+      <!-- Notification Bell -->
+      <div style="position:relative; cursor:pointer;" (click)="showNotificationPanel = !showNotificationPanel; markAllRead()">
+        <i class="bi bi-bell-fill" style="font-size:20px; color:var(--dark-text-dim);"
+          [style.color]="unreadCount > 0 ? '#f59e0b' : 'var(--dark-text-dim)'"></i>
+        <span *ngIf="unreadCount > 0"
+          style="position:absolute; top:-5px; right:-6px; background:#ef4444; color:#fff; border-radius:50%; font-size:10px; width:16px; height:16px; display:flex; align-items:center; justify-content:center; font-weight:700;">
+          {{ unreadCount }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div *ngIf="showNotificationPanel" class="card" style="margin:0 16px 12px; max-height:280px; overflow-y:auto; border:1px solid rgba(245,158,11,0.3);">
+      <div class="card-body" style="padding:12px;">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span style="font-weight:700; font-size:13px;"><i class="bi bi-bell me-1"></i> Notifications</span>
+          <button class="btn btn-sm" style="font-size:11px; color:#ef4444; padding:2px 8px;" (click)="clearNotifications()">Clear All</button>
+        </div>
+        <div *ngIf="notifications.length === 0" style="text-align:center; color:var(--dark-text-dim); font-size:12px; padding:12px 0;">No notifications</div>
+        <div *ngFor="let n of notifications" style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:12px;">
+          <div style="font-weight:600; color:var(--dark-text);">{{ n.title }}</div>
+          <div style="color:var(--dark-text-dim); margin-top:2px;">{{ n.message }}</div>
+          <div style="color:rgba(255,255,255,0.3); font-size:11px; margin-top:2px;">{{ n.time | date:'HH:mm' }}</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Overview</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">
+        <i class="bi bi-grid-1x2"></i> Dashboard
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'accounts'" (click)="activeTab = 'accounts'">
+        <i class="bi bi-credit-card-2-front"></i> My Accounts
+      </a>
+
+      <div class="sidebar-section-label">Transactions</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'deposit'" (click)="activeTab = 'deposit'">
+        <i class="bi bi-arrow-down-circle"></i> Deposit
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'withdraw'" (click)="activeTab = 'withdraw'">
+        <i class="bi bi-arrow-up-circle"></i> Withdraw
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'transfer'" (click)="activeTab = 'transfer'">
+        <i class="bi bi-arrow-left-right"></i> Transfer Funds
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'history'" (click)="activeTab = 'history'; loadTransactions()">
+        <i class="bi bi-clock-history"></i> Transaction History
+      </a>
+
+      <div class="sidebar-section-label">Banking</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'openaccount'" (click)="activeTab = 'openaccount'">
+        <i class="bi bi-plus-circle"></i> Open Account
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'cards'" (click)="activeTab = 'cards'; loadCards()">
+        <i class="bi bi-credit-card"></i> Cards
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'loans'" (click)="activeTab = 'loans'; loadLoans()">
+        <i class="bi bi-cash-coin"></i> Loans
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'beneficiaries'" (click)="activeTab = 'beneficiaries'; loadBeneficiaries()">
+        <i class="bi bi-people"></i> Beneficiaries
+      </a>
+
+      <div class="sidebar-section-label">Account</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'profile'" (click)="activeTab = 'profile'">
+        <i class="bi bi-person-circle"></i> My Profile
+      </a>
+    </nav>
+
+    <div class="sidebar-logout">
+      <button class="btn btn-outline btn-full btn-sm" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- ============== OVERVIEW TAB ============== -->
+    <div *ngIf="activeTab === 'overview'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Welcome back, {{ userFirstName }}! 👋</h1>
+        <p class="page-subtitle">Here's your financial overview for today</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-blue"><i class="bi bi-credit-card-2-front"></i></div>
+            <div>
+              <div class="stat-label">Total Accounts</div>
+              <div class="stat-value">{{ accounts.length }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-green"><i class="bi bi-wallet2"></i></div>
+            <div>
+              <div class="stat-label">Total Balance</div>
+              <div class="stat-value">₹{{ totalBalance | number:'1.0-0' }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-purple"><i class="bi bi-people"></i></div>
+            <div>
+              <div class="stat-label">Beneficiaries</div>
+              <div class="stat-value">{{ beneficiaries.length }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-orange"><i class="bi bi-cash-coin"></i></div>
+            <div>
+              <div class="stat-label">Active Loans</div>
+              <div class="stat-value">{{ activeLoansCount }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Cards -->
+      <h5 style="font-weight:700; margin-bottom:16px; color:var(--dark-text-dim); font-size:13px; text-transform:uppercase; letter-spacing:0.5px;">
+        <i class="bi bi-credit-card-2-front me-2"></i>Your Accounts
+      </h5>
+      <div class="row g-3 mb-4" *ngIf="accounts.length > 0">
+        <div class="col-md-4" *ngFor="let account of accounts">
+          <div class="account-card">
+            <span class="account-type-badge"
+              [class]="account.accountType === 'Savings' ? 'badge-savings' : account.accountType === 'Checking' ? 'badge-checking' : 'badge-business'">
+              {{ account.accountType }}
+            </span>
+            <span class="ms-2 account-type-badge"
+              [class]="account.status === 'Active' ? 'badge-active' : account.status === 'Pending' ? 'badge-pending' : 'badge-closed'">
+              {{ account.status }}
+            </span>
+            <div class="account-balance">₹{{ account.balance | number:'1.2-2' }}</div>
+            <div class="account-number">{{ account.accountNumber }}</div>
+            <div class="divider" style="margin: 14px 0 10px;"></div>
+            <div style="font-size:12px; color:var(--dark-text-dim);">
+              <i class="bi bi-building me-1"></i> {{ account.branchName }}
+              <span class="ms-3"><i class="bi bi-hash"></i> {{ account.ifscCode }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-state" *ngIf="accounts.length === 0 && !isLoading">
+        <i class="bi bi-credit-card-2-front"></i>
+        <h6>No Accounts Found</h6>
+        <p style="font-size:13px;">Open your first bank account to get started.</p>
+        <button class="btn btn-primary btn-sm" (click)="activeTab='openaccount'">
+          <i class="bi bi-plus-circle"></i> Open Account
+        </button>
+      </div>
+
+      <!-- Quick Actions -->
+      <h5 style="font-weight:700; margin-bottom:16px; margin-top:24px; color:var(--dark-text-dim); font-size:13px; text-transform:uppercase; letter-spacing:0.5px;">
+        <i class="bi bi-lightning me-2"></i>Quick Actions
+      </h5>
+      <div class="row g-3">
+        <div class="col-md-3 col-6">
+          <button class="btn btn-success btn-full py-3" (click)="activeTab='deposit'">
+            <div><i class="bi bi-arrow-down-circle" style="font-size:20px; display:block; margin-bottom:4px;"></i> Deposit</div>
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button class="btn btn-danger btn-full py-3" (click)="activeTab='withdraw'">
+            <div><i class="bi bi-arrow-up-circle" style="font-size:20px; display:block; margin-bottom:4px;"></i> Withdraw</div>
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button class="btn btn-primary btn-full py-3" (click)="activeTab='transfer'">
+            <div><i class="bi bi-arrow-left-right" style="font-size:20px; display:block; margin-bottom:4px;"></i> Transfer</div>
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button class="btn btn-warning btn-full py-3" (click)="activeTab='loans'; loadLoans()">
+            <div><i class="bi bi-cash-coin" style="font-size:20px; display:block; margin-bottom:4px;"></i> Apply Loan</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== ACCOUNTS TAB ============== -->
+    <div *ngIf="activeTab === 'accounts'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">My Accounts</h1>
+        <p class="page-subtitle">Manage all your bank accounts</p>
+      </div>
+
+      <div class="row g-3" *ngIf="accounts.length > 0">
+        <div class="col-12" *ngFor="let account of accounts">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+                <div>
+                  <div class="mb-2">
+                    <span class="account-type-badge me-2"
+                      [class]="account.accountType === 'Savings' ? 'badge-savings' : account.accountType === 'Checking' ? 'badge-checking' : 'badge-business'">
+                      {{ account.accountType }}
+                    </span>
+                    <span class="account-type-badge"
+                      [class]="account.status === 'Active' ? 'badge-active' : account.status === 'Pending' ? 'badge-pending' : 'badge-closed'">
+                      {{ account.status }}
+                    </span>
+                  </div>
+                  <div class="account-balance" style="font-size:24px;">₹{{ account.balance | number:'1.2-2' }}</div>
+                  <div class="account-number">{{ account.accountNumber }}</div>
+                </div>
+                <div *ngIf="account.status === 'Active'">
+                  <button class="btn btn-danger btn-sm" (click)="requestCloseAccount(account.id)">
+                    <i class="bi bi-x-circle"></i> Request Closure
+                  </button>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row g-2" style="font-size:13px;">
+                <div class="col-md-3"><span style="color:var(--dark-text-dim);">Account Holder</span><br><strong>{{ account.fullName }}</strong></div>
+                <div class="col-md-3"><span style="color:var(--dark-text-dim);">Branch</span><br><strong>{{ account.branchName }}</strong></div>
+                <div class="col-md-3"><span style="color:var(--dark-text-dim);">IFSC Code</span><br><strong>{{ account.ifscCode }}</strong></div>
+                <div class="col-md-3"><span style="color:var(--dark-text-dim);">Branch Address</span><br><strong>{{ account.branchAddress }}</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-state" *ngIf="accounts.length === 0">
+        <i class="bi bi-credit-card-2-front"></i>
+        <h6>No Accounts Found</h6>
+        <button class="btn btn-primary btn-sm mt-2" (click)="activeTab='openaccount'">Open Account</button>
+      </div>
+    </div>
+
+    <!-- ============== DEPOSIT TAB ============== -->
+    <div *ngIf="activeTab === 'deposit'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Deposit Funds</h1>
+        <p class="page-subtitle">Add money to your bank account</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header"><i class="bi bi-arrow-down-circle text-success me-2"></i>Make a Deposit</div>
+            <div class="card-body">
+              <div class="alert alert-danger" *ngIf="txError"><i class="bi bi-exclamation-circle-fill"></i> {{ txError }}</div>
+              <div class="alert alert-success" *ngIf="txSuccess"><i class="bi bi-check-circle-fill"></i> {{ txSuccess }}</div>
+              <div class="form-group">
+                <label class="form-label">Select Account</label>
+                <select class="form-select" [(ngModel)]="depositAccountId">
+                  <option value="">-- Select Account --</option>
+                  <option *ngFor="let acc of activeAccounts" [value]="acc.id">
+                    {{ acc.accountNumber }} – {{ acc.accountType }} (₹{{ acc.balance | number:'1.2-2' }})
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Amount (₹)</label>
+                <div class="input-group-icon">
+                  <i class="bi bi-currency-rupee icon"></i>
+                  <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="depositAmount" min="1">
+                </div>
+              </div>
+              <button class="btn btn-success btn-full" (click)="doDeposit()" [disabled]="txLoading">
+                <span class="spinner" *ngIf="txLoading"></span>
+                <i class="bi bi-arrow-down-circle" *ngIf="!txLoading"></i>
+                {{ txLoading ? 'Processing...' : 'Deposit Funds' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== WITHDRAW TAB ============== -->
+    <div *ngIf="activeTab === 'withdraw'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Withdraw Funds</h1>
+        <p class="page-subtitle">Withdraw money from your account</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header"><i class="bi bi-arrow-up-circle text-danger me-2"></i>Make a Withdrawal</div>
+            <div class="card-body">
+              <div class="alert alert-danger" *ngIf="txError"><i class="bi bi-exclamation-circle-fill"></i> {{ txError }}</div>
+              <div class="alert alert-success" *ngIf="txSuccess"><i class="bi bi-check-circle-fill"></i> {{ txSuccess }}</div>
+              <div class="form-group">
+                <label class="form-label">Select Account</label>
+                <select class="form-select" [(ngModel)]="withdrawAccountId">
+                  <option value="">-- Select Account --</option>
+                  <option *ngFor="let acc of activeAccounts" [value]="acc.id">
+                    {{ acc.accountNumber }} – {{ acc.accountType }} (₹{{ acc.balance | number:'1.2-2' }})
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Amount (₹)</label>
+                <div class="input-group-icon">
+                  <i class="bi bi-currency-rupee icon"></i>
+                  <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="withdrawAmount" min="1">
+                </div>
+              </div>
+              <button class="btn btn-danger btn-full" (click)="doWithdraw()" [disabled]="txLoading">
+                <span class="spinner" *ngIf="txLoading"></span>
+                <i class="bi bi-arrow-up-circle" *ngIf="!txLoading"></i>
+                {{ txLoading ? 'Processing...' : 'Withdraw Funds' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== TRANSFER TAB ============== -->
+    <div *ngIf="activeTab === 'transfer'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Transfer Funds</h1>
+        <p class="page-subtitle">Send money to another account</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header"><i class="bi bi-arrow-left-right text-primary me-2"></i>Fund Transfer</div>
+            <div class="card-body">
+              <div class="alert alert-danger" *ngIf="txError"><i class="bi bi-exclamation-circle-fill"></i> {{ txError }}</div>
+              <div class="alert alert-success" *ngIf="txSuccess"><i class="bi bi-check-circle-fill"></i> {{ txSuccess }}</div>
+
+              <div class="form-group">
+                <label class="form-label">From Account</label>
+                <select class="form-select" [(ngModel)]="transferFromId">
+                  <option value="">-- Select Account --</option>
+                  <option *ngFor="let acc of activeAccounts" [value]="acc.id">
+                    {{ acc.accountNumber }} – {{ acc.accountType }} (₹{{ acc.balance | number:'1.2-2' }})
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Destination Account Number</label>
+                <input type="text" class="form-control" placeholder="Enter account number"
+                  [(ngModel)]="transferDestAccount">
+              </div>
+
+              <div class="form-group" *ngIf="beneficiaries.length > 0">
+                <label class="form-label">Or Select Beneficiary</label>
+                <select class="form-select" [(ngModel)]="selectedBeneficiaryAcc" (change)="onBeneficiarySelect()">
+                  <option value="">-- Select Beneficiary --</option>
+                  <option *ngFor="let b of beneficiaries" [value]="b.accountNumber">
+                    {{ b.beneficiaryName }} ({{ b.accountNumber }}) – {{ b.bankName }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Amount (₹)</label>
+                <div class="input-group-icon">
+                  <i class="bi bi-currency-rupee icon"></i>
+                  <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="transferAmount" min="1">
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-full" (click)="doTransfer()" [disabled]="txLoading">
+                <span class="spinner" *ngIf="txLoading"></span>
+                <i class="bi bi-arrow-left-right" *ngIf="!txLoading"></i>
+                {{ txLoading ? 'Processing...' : 'Transfer Now' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== TRANSACTION HISTORY TAB ============== -->
+    <div *ngIf="activeTab === 'history'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Transaction History</h1>
+        <p class="page-subtitle">View your complete transaction records</p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+              <label class="form-label">Account</label>
+              <select class="form-select" [(ngModel)]="txAccountId" (change)="loadTransactions()">
+                <option value="">-- All Accounts --</option>
+                <option *ngFor="let acc of accounts" [value]="acc.id">
+                  {{ acc.accountNumber }} ({{ acc.accountType }})
+                </option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Filter</label>
+              <div class="tab-bar" style="margin-bottom:0;">
+                <button class="tab-btn" [class.active]="txFilter === 'last10'" (click)="txFilter='last10'; loadTransactions()">Last 10</button>
+                <button class="tab-btn" [class.active]="txFilter === 'month'" (click)="txFilter='month'; loadTransactions()">Month</button>
+                <button class="tab-btn" [class.active]="txFilter === 'range'" (click)="txFilter='range'">Range</button>
+              </div>
+            </div>
+            <ng-container *ngIf="txFilter === 'range'">
+              <div class="col-md-2">
+                <label class="form-label">From Date</label>
+                <input type="date" class="form-control" [(ngModel)]="txFromDate">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">To Date</label>
+                <input type="date" class="form-control" [(ngModel)]="txToDate">
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-primary btn-full" (click)="loadTransactions()">
+                  <i class="bi bi-search"></i> Search
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Table -->
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="loading-overlay" *ngIf="txLoading">
+            <span class="spinner"></span> Loading transactions...
+          </div>
+          <div class="table-responsive" *ngIf="!txLoading && transactions.length > 0">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th class="text-end">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tx of transactions">
+                  <td style="color:var(--dark-text-dim);">{{ tx.createdAt | date:'dd MMM yyyy, HH:mm' }}</td>
+                  <td>
+                    <span class="badge"
+                      [class]="tx.transactionType === 'Deposit' || tx.transactionType === 'Transfer Received' || tx.transactionType === 'Loan Disbursement' ? 'badge-tx-deposit' : tx.transactionType === 'Withdraw' || tx.transactionType === 'Transfer Sent' || tx.transactionType === 'Loan Repayment' ? 'badge-tx-withdraw' : 'badge-tx-transfer'">
+                      {{ tx.transactionType }}
+                    </span>
+                  </td>
+                  <td style="color:var(--dark-text-dim);">{{ tx.description || '—' }}</td>
+                  <td class="text-end">
+                    <span [class]="tx.transactionType === 'Deposit' || tx.transactionType === 'Transfer Received' || tx.transactionType === 'Loan Disbursement' ? 'text-success' : 'text-danger'">
+                      {{ tx.transactionType === 'Deposit' || tx.transactionType === 'Transfer Received' || tx.transactionType === 'Loan Disbursement' ? '+' : '-' }}₹{{ tx.amount | number:'1.2-2' }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="empty-state" *ngIf="!txLoading && transactions.length === 0">
+            <i class="bi bi-clock-history"></i>
+            <h6>No Transactions Found</h6>
+            <p style="font-size:13px;">Select an account and filter to see transactions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== OPEN ACCOUNT TAB ============== -->
+    <div *ngIf="activeTab === 'openaccount'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Open New Account</h1>
+        <p class="page-subtitle">Apply for a new bank account – pending employee approval</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header"><i class="bi bi-plus-circle text-primary me-2"></i>Account Application</div>
+            <div class="card-body">
+              <div class="alert alert-danger" *ngIf="openAccError"><i class="bi bi-exclamation-circle-fill"></i> {{ openAccError }}</div>
+              <div class="alert alert-success" *ngIf="openAccSuccess"><i class="bi bi-check-circle-fill"></i> {{ openAccSuccess }}</div>
+
+              <div class="form-group">
+                <label class="form-label">Account Type</label>
+                <select class="form-select" [(ngModel)]="newAcc.accountType">
+                  <option value="">-- Select Type --</option>
+                  <option value="Savings">Savings Account</option>
+                  <option value="Checking">Checking Account</option>
+                  <option value="Business">Business Account</option>
+                </select>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Full name on account" [(ngModel)]="newAcc.fullName">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" [(ngModel)]="newAcc.dateOfBirth" (change)="calcNewAccAge()">
+                    <small *ngIf="newAcc.age" style="font-size:12px; color:var(--success);">Age: {{ newAcc.age }} years</small>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" placeholder="Residential address" [(ngModel)]="newAcc.address">
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Aadhar Number</label>
+                    <input type="text" class="form-control" placeholder="12-digit Aadhar" [(ngModel)]="newAcc.aadharNumber" maxlength="12">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">PAN Number</label>
+                    <input type="text" class="form-control" placeholder="e.g. ABCDE1234F" [(ngModel)]="newAcc.panNumber" maxlength="10">
+                  </div>
+                </div>
+              </div>
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle-fill"></i>
+                Your application will be reviewed by a bank employee. Once approved, your account will be activated.
+              </div>
+              <button class="btn btn-primary btn-full" (click)="openAccount()" [disabled]="openAccLoading">
+                <span class="spinner" *ngIf="openAccLoading"></span>
+                <i class="bi bi-plus-circle" *ngIf="!openAccLoading"></i>
+                {{ openAccLoading ? 'Submitting...' : 'Submit Application' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== LOANS TAB ============== -->
+    <div *ngIf="activeTab === 'loans'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Loans</h1>
+        <p class="page-subtitle">Apply for loans and manage existing ones</p>
+      </div>
+
+      <!-- Tab bar -->
+      <div class="tab-bar">
+        <button class="tab-btn" [class.active]="loanSubTab === 'apply'" (click)="loanSubTab='apply'">Apply for Loan</button>
+        <button class="tab-btn" [class.active]="loanSubTab === 'myloans'" (click)="loanSubTab='myloans'">My Loans</button>
+      </div>
+
+      <!-- Apply -->
+      <div *ngIf="loanSubTab === 'apply'">
+        <div class="row g-4">
+          <!-- Loan Products -->
+          <div class="col-md-4" *ngFor="let product of loanProducts">
+            <div class="card" style="cursor:pointer; transition:var(--transition);"
+              [style.border-color]="selectedLoanProduct?.name === product.name ? 'var(--primary)' : ''"
+              (click)="selectLoanProduct(product)">
+              <div class="card-body">
+                <div class="stat-icon mb-3" [class]="product.iconClass" style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                  <i [class]="product.icon" style="font-size:20px;"></i>
+                </div>
+                <h6 style="font-weight:700; margin-bottom:4px;">{{ product.name }}</h6>
+                <div style="font-size:13px; color:var(--dark-text-dim); margin-bottom:12px;">{{ product.description }}</div>
+                <div class="info-row">
+                  <span class="label">Rate of Interest</span>
+                  <span class="value text-success">{{ product.interestRate }}% p.a.</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Max Tenure</span>
+                  <span class="value">{{ product.maxTenure }} months</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Amount Range</span>
+                  <span class="value">₹{{ product.minAmount | number:'1.0-0' }} – ₹{{ product.maxAmount | number:'1.0-0' }}</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-sm mt-3">
+                  <i class="bi bi-check-circle" *ngIf="selectedLoanProduct?.name === product.name"></i>
+                  {{ selectedLoanProduct?.name === product.name ? 'Selected' : 'Select' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apply Form -->
+        <div class="row justify-content-center mt-4" *ngIf="selectedLoanProduct">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header"><i class="bi bi-cash-coin text-warning me-2"></i>Loan Application – {{ selectedLoanProduct.name }}</div>
+              <div class="card-body">
+                <div class="alert alert-danger" *ngIf="loanError"><i class="bi bi-exclamation-circle-fill"></i> {{ loanError }}</div>
+                <div class="alert alert-success" *ngIf="loanSuccess"><i class="bi bi-check-circle-fill"></i> {{ loanSuccess }}</div>
+                <div class="form-group">
+                  <label class="form-label">Select Account (for disbursement)</label>
+                  <select class="form-select" [(ngModel)]="loanApplication.accountNumber">
+                    <option value="">-- Select Account --</option>
+                    <option *ngFor="let acc of activeAccounts" [value]="acc.accountNumber">
+                      {{ acc.accountNumber }} – {{ acc.accountType }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Loan Amount (₹)</label>
+                  <div class="input-group-icon">
+                    <i class="bi bi-currency-rupee icon"></i>
+                    <input type="number" class="form-control" [placeholder]="'₹' + selectedLoanProduct.minAmount + ' – ₹' + selectedLoanProduct.maxAmount"
+                      [(ngModel)]="loanApplication.loanAmount" [min]="selectedLoanProduct.minAmount" [max]="selectedLoanProduct.maxAmount">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tenure (Months)</label>
+                  <input type="number" class="form-control" [placeholder]="'Max ' + selectedLoanProduct.maxTenure + ' months'"
+                    [(ngModel)]="loanApplication.tenureMonths" [max]="selectedLoanProduct.maxTenure" min="1">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Purpose</label>
+                  <input type="text" class="form-control" placeholder="e.g. Home purchase, Car, Education"
+                    [(ngModel)]="loanApplication.purpose">
+                </div>
+                <button class="btn btn-warning btn-full" (click)="applyLoan()" [disabled]="loanLoading">
+                  <span class="spinner" *ngIf="loanLoading"></span>
+                  <i class="bi bi-send" *ngIf="!loanLoading"></i>
+                  {{ loanLoading ? 'Submitting...' : 'Submit Loan Application' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Loans -->
+      <div *ngIf="loanSubTab === 'myloans'">
+        <div class="loading-overlay" *ngIf="loanLoading"><span class="spinner"></span> Loading...</div>
+        <div class="row g-3" *ngIf="myLoans.length > 0">
+          <div class="col-md-6" *ngFor="let loan of myLoans">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 style="font-weight:700; margin:0;">{{ loan.purpose }}</h6>
+                  <span class="badge" [class]="loan.loanStatus === 'Approved' ? 'badge-status-approved' : loan.loanStatus === 'Pending' ? 'badge-status-pending' : loan.loanStatus === 'Paid' ? 'badge-status-active' : 'badge-status-rejected'">
+                    {{ loan.loanStatus }}
+                  </span>
+                </div>
+                <div class="info-row"><span class="label">Loan Amount</span><span class="value">₹{{ loan.loanAmount | number:'1.2-2' }}</span></div>
+                <div class="info-row"><span class="label">Interest Rate</span><span class="value text-warning">{{ loan.interestRate }}% p.a.</span></div>
+                <div class="info-row"><span class="label">Tenure</span><span class="value">{{ loan.tenureMonths }} months</span></div>
+                <div class="info-row"><span class="label">Account</span><span class="value">{{ loan.accountNumber }}</span></div>
+                <div class="info-row" *ngIf="loan.loanStatus === 'Approved'">
+                  <span class="label">Remaining Balance</span>
+                  <span class="value text-danger">₹{{ loan.remainingBalance | number:'1.2-2' }}</span>
+                </div>
+                <button class="btn btn-warning btn-sm btn-full mt-3" *ngIf="loan.loanStatus === 'Approved'" (click)="openRepayPanel(loan)">
+                  <i class="bi bi-cash-coin"></i> Repay Loan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="empty-state" *ngIf="!loanLoading && myLoans.length === 0">
+          <i class="bi bi-cash-coin"></i>
+          <h6>No Loans Found</h6>
+          <p style="font-size:13px;">You have not applied for any loans yet.</p>
+          <button class="btn btn-primary btn-sm" (click)="loanSubTab='apply'">Apply for Loan</button>
+        </div>
+      </div>
+
+      <!-- Repay Loan Modal -->
+      <div class="modal-overlay" *ngIf="repayLoanId !== null">
+        <div class="modal-box" style="max-width:480px">
+          <div class="modal-title"><i class="bi bi-cash-coin"></i> Repay Loan</div>
+          <div class="alert alert-danger" *ngIf="repayError"><i class="bi bi-exclamation-circle-fill"></i> {{ repayError }}</div>
+          <div class="alert alert-success" *ngIf="repaySuccess"><i class="bi bi-check-circle-fill"></i> {{ repaySuccess }}</div>
+          <div class="form-group">
+            <label class="form-label">Source Account</label>
+            <select class="form-select" [(ngModel)]="repayAccountNumber">
+              <option value="">-- Select Account --</option>
+              <option *ngFor="let acc of activeAccounts" [value]="acc.accountNumber">
+                {{ acc.accountNumber }} – {{ acc.accountType }} (₹{{ acc.balance | number:'1.2-2' }})
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Repayment Amount (₹)</label>
+            <div class="input-group-icon">
+              <i class="bi bi-currency-rupee icon"></i>
+              <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="repayAmount" min="1">
+            </div>
+          </div>
+          <div class="d-flex gap-3 mt-3">
+            <button class="btn btn-warning" (click)="repayLoan()" [disabled]="repayLoading" style="flex:1">
+              <span class="spinner" *ngIf="repayLoading"></span>
+              <i class="bi bi-cash-coin" *ngIf="!repayLoading"></i>
+              {{ repayLoading ? 'Processing...' : 'Submit Repayment' }}
+            </button>
+            <button class="btn btn-outline" (click)="closeRepayPanel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== BENEFICIARIES TAB ============== -->
+    <div *ngIf="activeTab === 'beneficiaries'" class="animate-in">
+      <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+          <h1 class="page-title">Beneficiaries</h1>
+          <p class="page-subtitle">Manage your saved recipients for quick transfers</p>
+        </div>
+        <button class="btn btn-primary" (click)="showAddBeneficiary = true">
+          <i class="bi bi-plus-circle"></i> Add Beneficiary
+        </button>
+      </div>
+
+      <!-- Add Beneficiary Form -->
+      <div class="modal-overlay" *ngIf="showAddBeneficiary">
+        <div class="modal-box">
+          <div class="modal-title"><i class="bi bi-person-plus"></i> Add New Beneficiary</div>
+          <div class="alert alert-danger" *ngIf="benError"><i class="bi bi-exclamation-circle-fill"></i> {{ benError }}</div>
+          <div class="form-group">
+            <label class="form-label">Beneficiary Name</label>
+            <input type="text" class="form-control" placeholder="Full name" [(ngModel)]="newBen.beneficiaryName">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Account Number</label>
+            <input type="text" class="form-control" placeholder="Account number" [(ngModel)]="newBen.accountNumber">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bank Name</label>
+            <select class="form-select" [(ngModel)]="newBen.bankName" (change)="onBankChange()">
+              <option value="">-- Select Bank --</option>
+              <option *ngFor="let bank of bankList" [value]="bank.name">{{ bank.name }}</option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="newBen.bankName">
+            <label class="form-label">Branch</label>
+            <select class="form-select" [(ngModel)]="newBen.branchName" (change)="onBranchChange()">
+              <option value="">-- Select Branch --</option>
+              <option *ngFor="let branch of selectedBankBranches" [value]="branch.name">{{ branch.name }}</option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="newBen.branchName">
+            <label class="form-label">IFSC Code</label>
+            <input type="text" class="form-control" [value]="newBen.ifscCode" readonly
+              style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.3);">
+          </div>
+          <div class="d-flex gap-3 mt-2">
+            <button class="btn btn-primary flex-1" (click)="addBeneficiary()" [disabled]="benLoading" style="flex:1">
+              <span class="spinner" *ngIf="benLoading"></span>
+              <i class="bi bi-person-check" *ngIf="!benLoading"></i>
+              {{ benLoading ? 'Adding...' : 'Add Beneficiary' }}
+            </button>
+            <button class="btn btn-outline" (click)="showAddBeneficiary = false; benError = ''">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beneficiary List -->
+      <div class="loading-overlay" *ngIf="benLoading && !showAddBeneficiary"><span class="spinner"></span> Loading...</div>
+      <div class="row g-3" *ngIf="beneficiaries.length > 0">
+        <div class="col-md-6 col-lg-4" *ngFor="let b of beneficiaries">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="sidebar-avatar" style="width:44px; height:44px; font-size:18px;">
+                  {{ b.beneficiaryName?.[0] || 'B' }}
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:14px;">{{ b.beneficiaryName }}</div>
+                  <div style="font-size:12px; color:var(--dark-text-dim);">{{ b.bankName }}</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="label">Account No.</span>
+                <span class="value" style="font-family:monospace;">{{ b.accountNumber }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Branch</span>
+                <span class="value">{{ b.branchName }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">IFSC</span>
+                <span class="value">{{ b.ifscCode }}</span>
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-primary btn-sm" style="flex:1" (click)="transferToBeneficiary(b)">
+                  <i class="bi bi-arrow-left-right"></i> Send Money
+                </button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.12); color:#ef4444; border:1px solid rgba(239,68,68,0.25); border-radius:10px;" (click)="deleteBeneficiary(b.id)" title="Remove Beneficiary">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-state" *ngIf="!benLoading && beneficiaries.length === 0">
+        <i class="bi bi-people"></i>
+        <h6>No Beneficiaries Added</h6>
+        <p style="font-size:13px;">Add beneficiaries for quick and easy money transfers.</p>
+        <button class="btn btn-primary btn-sm" (click)="showAddBeneficiary = true">Add Beneficiary</button>
+      </div>
+    </div>
+
+    <!-- ============== PROFILE TAB ============== -->
+    <div *ngIf="activeTab === 'profile'" class="animate-in">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">My Profile</h1>
+          <p class="page-subtitle">View and update your personal information</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Left: Profile Card -->
+        <div class="col-md-4">
+          <div class="card text-center" style="padding:32px 16px;">
+            <div class="sidebar-avatar" style="width:80px; height:80px; font-size:32px; margin:0 auto 16px;">{{ initials }}</div>
+            <div style="font-weight:700; font-size:18px; color:var(--dark-text);">{{ profileData.fullName }}</div>
+            <div style="color:var(--dark-text-dim); font-size:13px; margin:4px 0 12px;">{{ profileData.email }}</div>
+            <span class="badge badge-status-approved" style="margin:0 auto;">{{ profileData.role }}</span>
+            <div class="divider" style="margin:20px 0;"></div>
+            <div class="info-row"><span class="label">Phone</span><span class="value">{{ profileData.phoneNumber || '—' }}</span></div>
+            <div class="info-row"><span class="label">Gender</span><span class="value">{{ profileData.gender || '—' }}</span></div>
+            <div class="info-row"><span class="label">Date of Birth</span><span class="value">{{ (profileData.dateOfBirth | date:'dd MMM yyyy') || '—' }}</span></div>
+            <div class="info-row"><span class="label">Aadhar</span><span class="value">{{ profileData.aadharNumber ? ('**** **** ' + profileData.aadharNumber.slice(-4)) : '—' }}</span></div>
+            <div class="info-row"><span class="label">PAN</span><span class="value">{{ profileData.panNumber || '—' }}</span></div>
+          </div>
+        </div>
+
+        <!-- Right: Edit Form -->
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="modal-title mb-4" style="font-size:16px;"><i class="bi bi-pencil-square"></i> Edit Personal Details</div>
+              <div class="alert alert-danger" *ngIf="profileError"><i class="bi bi-exclamation-circle-fill"></i> {{ profileError }}</div>
+              <div class="alert alert-success" *ngIf="profileSuccess"><i class="bi bi-check-circle-fill"></i> {{ profileSuccess }}</div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" class="form-control" [(ngModel)]="profileEdit.fullName" placeholder="Your full name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" [(ngModel)]="profileEdit.phoneNumber" placeholder="10-digit mobile number">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Gender</label>
+                    <select class="form-select" [(ngModel)]="profileEdit.gender">
+                      <option value="">-- Select --</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" [(ngModel)]="profileEdit.dateOfBirth">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-control" rows="3" [(ngModel)]="profileEdit.address" placeholder="Your residential address" style="resize:none;"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3 mt-3">
+                <button class="btn btn-primary" (click)="saveProfile()" [disabled]="profileLoading" style="flex:1">
+                  <span class="spinner" *ngIf="profileLoading"></span>
+                  <i class="bi bi-check-circle" *ngIf="!profileLoading"></i>
+                  {{ profileLoading ? 'Saving...' : 'Save Changes' }}
+                </button>
+                <button class="btn btn-outline" (click)="loadProfile()">Reset</button>
+              </div>
+
+              <div class="divider" style="margin:24px 0;"></div>
+              <div style="font-size:12px; color:var(--dark-text-dim);">
+                <i class="bi bi-info-circle me-1"></i>
+                Email, Aadhar, and PAN details are locked and can only be changed by the bank administrator.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== CARDS TAB ============== -->
+    <div *ngIf="activeTab === 'cards'" class="animate-in">
+      <div class="page-header d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="page-title">Manage Cards</h1>
+          <p class="page-subtitle">Freeze cards, manage daily limits, or change card PINs</p>
+        </div>
+        <button class="btn btn-primary" (click)="showApplyCard = !showApplyCard">
+          <i class="bi bi-plus-lg"></i> {{ showApplyCard ? 'View My Cards' : 'Apply for New Card' }}
+        </button>
+      </div>
+
+      <!-- Apply For New Card View -->
+      <div class="card p-4 mb-4" *ngIf="showApplyCard">
+        <h4 style="font-weight:700; margin-bottom:16px;">Apply for a New Card</h4>
+        
+        <div class="alert alert-danger" *ngIf="cardError">
+          <i class="bi bi-exclamation-circle-fill me-2"></i> {{ cardError }}
+        </div>
+        
+        <div class="alert alert-success" *ngIf="cardSuccess">
+          <i class="bi bi-check-circle-fill me-2"></i> {{ cardSuccess }}
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">Link to Account</label>
+              <select class="form-select" [(ngModel)]="newCard.accountId">
+                <option value="">-- Select Active Account --</option>
+                <option *ngFor="let acc of activeAccounts" [value]="acc.id">
+                  {{ acc.accountNumber }} - {{ acc.accountType }} (₹{{ acc.balance | number:'1.2-2' }})
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">Card Type</label>
+              <select class="form-select" [(ngModel)]="newCard.cardType">
+                <option value="Visa Debit">Visa Debit (Limit: ₹50k ATM / ₹100k Online)</option>
+                <option value="Visa Gold">Visa Gold (Limit: ₹50k ATM / ₹100k Online)</option>
+                <option value="Mastercard Platinum">Mastercard Platinum (Limit: ₹100k ATM / ₹200k Online)</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">Set 4-Digit PIN</label>
+              <input type="password" class="form-control" [(ngModel)]="newCard.pin" placeholder="Enter 4-digit PIN" maxlength="4">
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-3 mt-4">
+          <button class="btn btn-outline" (click)="showApplyCard = false">Cancel</button>
+          <button class="btn btn-primary" (click)="applyNewCard()" [disabled]="cardLoading">
+            <span class="spinner" *ngIf="cardLoading"></span>
+            Apply & Issue Card
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Cards Grid -->
+      <div *ngIf="!showApplyCard">
+        <div *ngIf="cards.length === 0" class="card p-5 text-center">
+          <i class="bi bi-credit-card" style="font-size: 48px; color: var(--dark-text-dim);"></i>
+          <h4 class="mt-3">No active cards found</h4>
+          <p class="text-muted">Apply for a new credit/debit card to link to your account.</p>
+          <button class="btn btn-primary mt-2" (click)="showApplyCard = true" style="max-width:200px; margin:0 auto;">
+            Apply For Card
+          </button>
+        </div>
+
+        <div class="cards-grid" *ngIf="cards.length > 0">
+          <div *ngFor="let card of cards" style="display:flex; flex-direction:column;">
+            <div class="bank-card" [ngClass]="getCardThemeClass(card.cardType)">
+              
+              <!-- Frozen Badge overlay -->
+              <div class="frozen-overlay" *ngIf="card.isBlocked">
+                <i class="bi bi-shield-lock-fill"></i>
+                Card Frozen
+              </div>
+
+              <div class="card-header-row">
+                <span class="card-brand">MAVERICK BANK</span>
+                <span class="card-type-label">{{ card.cardType }}</span>
+              </div>
+
+              <div class="card-chip"></div>
+
+              <div class="card-number">{{ card.cardNumber }}</div>
+
+              <div class="card-footer-row">
+                <div>
+                  <span class="card-expiry-label">Card Holder</span>
+                  <div class="card-holder-name">{{ card.cardHolderName }}</div>
+                </div>
+                <div class="card-expiry-box">
+                  <span class="card-expiry-label">Expires</span>
+                  <span class="card-expiry-value">{{ card.expiryDate }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Controls -->
+            <div class="card-controls" *ngIf="!card.isBlocked">
+              <button class="btn btn-outline btn-sm" (click)="toggleCardBlock(card)">
+                <i class="bi bi-lock"></i> Freeze
+              </button>
+              <button class="btn btn-outline btn-sm" (click)="openLimitsModal(card)">
+                <i class="bi bi-sliders"></i> Limits
+              </button>
+              <button class="btn btn-outline btn-sm" (click)="openPinModal(card)">
+                <i class="bi bi-shield-key"></i> PIN
+              </button>
+            </div>
+            
+            <div class="card-controls" *ngIf="card.isBlocked">
+              <button class="btn btn-primary btn-sm btn-full" (click)="toggleCardBlock(card)">
+                <i class="bi bi-unlock"></i> Unfreeze Card
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Limits Management Modal -->
+    <div class="custom-modal-backdrop" *ngIf="showLimitsModal">
+      <div class="custom-modal animate-in">
+        <h4 style="font-weight:700; margin-bottom:16px;">Daily Limits Configuration</h4>
+        <p class="text-muted" style="font-size:12px;" *ngIf="selectedCard">Card: {{ selectedCard.cardType }} ({{ selectedCard.cardNumber }})</p>
+        
+        <div class="alert alert-danger" *ngIf="cardError">
+          <i class="bi bi-exclamation-circle-fill me-2"></i> {{ cardError }}
+        </div>
+        
+        <div class="alert alert-success" *ngIf="cardSuccess">
+          <i class="bi bi-check-circle-fill me-2"></i> {{ cardSuccess }}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Daily ATM Withdrawal Limit (₹)</label>
+          <input type="number" class="form-control" [(ngModel)]="cardLimits.dailyAtmLimit">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Daily Online Transaction Limit (₹)</label>
+          <input type="number" class="form-control" [(ngModel)]="cardLimits.dailyOnlineLimit">
+        </div>
+
+        <div class="d-flex gap-3 mt-4">
+          <button class="btn btn-outline" style="flex:1" (click)="showLimitsModal = false">Cancel</button>
+          <button class="btn btn-primary" style="flex:1" (click)="saveCardLimits()" [disabled]="cardLoading">
+            <span class="spinner" *ngIf="cardLoading"></span>
+            Update Limits
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PIN Change Modal -->
+    <div class="custom-modal-backdrop" *ngIf="showPinModal">
+      <div class="custom-modal animate-in">
+        <h4 style="font-weight:700; margin-bottom:16px;">Change Card PIN</h4>
+        <p class="text-muted" style="font-size:12px;" *ngIf="selectedCard">Card: {{ selectedCard.cardType }} ({{ selectedCard.cardNumber }})</p>
+        
+        <div class="alert alert-danger" *ngIf="cardError">
+          <i class="bi bi-exclamation-circle-fill me-2"></i> {{ cardError }}
+        </div>
+        
+        <div class="alert alert-success" *ngIf="cardSuccess">
+          <i class="bi bi-check-circle-fill me-2"></i> {{ cardSuccess }}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Current 4-Digit PIN</label>
+          <input type="password" class="form-control" [(ngModel)]="cardPinChange.oldPin" placeholder="Enter current PIN" maxlength="4">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">New 4-Digit PIN</label>
+          <input type="password" class="form-control" [(ngModel)]="cardPinChange.newPin" placeholder="Enter new PIN" maxlength="4">
+        </div>
+
+        <div class="d-flex gap-3 mt-4">
+          <button class="btn btn-outline" style="flex:1" (click)="showPinModal = false">Cancel</button>
+          <button class="btn btn-primary" style="flex:1" (click)="changeCardPin()" [disabled]="cardLoading">
+            <span class="spinner" *ngIf="cardLoading"></span>
+            Change PIN
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

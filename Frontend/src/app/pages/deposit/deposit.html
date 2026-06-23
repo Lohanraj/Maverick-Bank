@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-4">
+      Deposit Money
+    </h2>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Amount
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="amount"
+        placeholder="Enter amount">
+
+    </div>
+
+    <button
+      class="btn btn-success w-100"
+      (click)="deposit()">
+
+      Deposit Money
+
+    </button>
+
+  </div>
+
+</div>

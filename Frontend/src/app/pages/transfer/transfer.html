@@ -1,0 +1,53 @@
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-4">
+      Transfer Money
+    </h2>
+
+    <!-- RECEIVER ACCOUNT -->
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Receiver Account Number
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="toAccountId"
+        placeholder="Enter receiver account">
+
+    </div>
+
+    <!-- AMOUNT -->
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Amount
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="amount"
+        placeholder="Enter amount">
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <button
+      class="btn btn-success w-100"
+      (click)="transfer()">
+
+      Transfer Money
+
+    </button>
+
+  </div>
+
+</div>

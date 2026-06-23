@@ -1,0 +1,386 @@
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-logo">
+        <div class="sidebar-brand-icon"><i class="bi bi-bank2"></i></div>
+        <div>
+          <div class="sidebar-brand-name">Maverick Bank</div>
+          <span class="sidebar-brand-tag">Employee Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);">
+        {{ initials }}
+      </div>
+      <div>
+        <div class="sidebar-user-name">{{ userName }}</div>
+        <div class="sidebar-user-role">Bank Employee</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Dashboard</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">
+        <i class="bi bi-grid-1x2"></i> Overview
+      </a>
+
+      <div class="sidebar-section-label">Account Management</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'pending'" (click)="activeTab = 'pending'">
+        <i class="bi bi-hourglass-split"></i> Pending Approvals
+        <span class="ms-auto badge badge-status-pending" *ngIf="pendingAccounts.length > 0">{{ pendingAccounts.length }}</span>
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'closure'" (click)="activeTab = 'closure'">
+        <i class="bi bi-x-circle"></i> Closure Requests
+        <span class="ms-auto badge badge-status-rejected" *ngIf="closureRequests.length > 0">{{ closureRequests.length }}</span>
+      </a>
+      <a class="sidebar-link" [class.active]="activeTab === 'transactions'" (click)="activeTab = 'transactions'">
+        <i class="bi bi-receipt"></i> All Transactions
+      </a>
+
+      <div class="sidebar-section-label">Loan Management</div>
+      <a class="sidebar-link" [class.active]="activeTab === 'loans'" (click)="activeTab = 'loans'">
+        <i class="bi bi-cash-coin"></i> Loan Applications
+        <span class="ms-auto badge badge-status-pending" *ngIf="pendingLoans.length > 0">{{ pendingLoans.length }}</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-logout">
+      <button class="btn btn-outline btn-full btn-sm" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- ============== OVERVIEW ============== -->
+    <div *ngIf="activeTab === 'overview'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Employee Dashboard</h1>
+        <p class="page-subtitle">Manage accounts, transactions, and loans</p>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-orange"><i class="bi bi-hourglass-split"></i></div>
+            <div>
+              <div class="stat-label">Pending Accounts</div>
+              <div class="stat-value">{{ pendingAccounts.length }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-red"><i class="bi bi-x-circle"></i></div>
+            <div>
+              <div class="stat-label">Closure Requests</div>
+              <div class="stat-value">{{ closureRequests.length }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-blue"><i class="bi bi-cash-coin"></i></div>
+            <div>
+              <div class="stat-label">Pending Loans</div>
+              <div class="stat-value">{{ pendingLoans.length }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-green"><i class="bi bi-receipt"></i></div>
+            <div>
+              <div class="stat-label">Total Transactions</div>
+              <div class="stat-value">{{ allTransactions.length }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card" style="cursor:pointer;" (click)="activeTab='pending'">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="stat-icon stat-icon-orange"><i class="bi bi-hourglass-split"></i></div>
+              <div>
+                <div style="font-weight:700;">Review Pending Accounts</div>
+                <div style="font-size:12px; color:var(--dark-text-dim);">{{ pendingAccounts.length }} account(s) awaiting approval</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" style="cursor:pointer;" (click)="activeTab='loans'">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="stat-icon stat-icon-blue"><i class="bi bi-cash-coin"></i></div>
+              <div>
+                <div style="font-weight:700;">Review Loan Applications</div>
+                <div style="font-size:12px; color:var(--dark-text-dim);">{{ pendingLoans.length }} loan(s) pending decision</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" style="cursor:pointer;" (click)="activeTab='transactions'">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="stat-icon stat-icon-green"><i class="bi bi-receipt"></i></div>
+              <div>
+                <div style="font-weight:700;">View All Transactions</div>
+                <div style="font-size:12px; color:var(--dark-text-dim);">Monitor all account activity</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== PENDING ACCOUNTS ============== -->
+    <div *ngIf="activeTab === 'pending'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Pending Account Approvals</h1>
+        <p class="page-subtitle">Review and approve or reject new account applications</p>
+      </div>
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="empty-state" *ngIf="pendingAccounts.length === 0">
+            <i class="bi bi-check-circle"></i>
+            <h6>All Clear!</h6>
+            <p style="font-size:13px;">No pending account approvals at this time.</p>
+          </div>
+          <div class="table-responsive" *ngIf="pendingAccounts.length > 0">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Account Number</th>
+                  <th>Holder Name</th>
+                  <th>Type</th>
+                  <th>IFSC</th>
+                  <th>Branch</th>
+                  <th>Applied On</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let acc of pendingAccounts">
+                  <td><span style="font-family:monospace; font-weight:600;">{{ acc.accountNumber }}</span></td>
+                  <td>{{ acc.fullName }}</td>
+                  <td><span class="badge" [class]="acc.accountType === 'Savings' ? 'badge-savings' : acc.accountType === 'Checking' ? 'badge-checking' : 'badge-business'">{{ acc.accountType }}</span></td>
+                  <td><span style="font-family:monospace; font-size:12px; color:var(--dark-text-dim);">{{ acc.ifscCode }}</span></td>
+                  <td style="font-size:12px; color:var(--dark-text-dim);">{{ acc.branchName }}</td>
+                  <td style="color:var(--dark-text-dim); font-size:12px;">{{ acc.createdAt | date:'dd MMM yyyy' }}</td>
+                  <td>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-success btn-sm" (click)="approveAccount(acc.id)">
+                        <i class="bi bi-check-lg"></i> Approve
+                      </button>
+                      <button class="btn btn-danger btn-sm" (click)="rejectAccount(acc.id)">
+                        <i class="bi bi-x-lg"></i> Reject
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== CLOSURE REQUESTS ============== -->
+    <div *ngIf="activeTab === 'closure'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Account Closure Requests</h1>
+        <p class="page-subtitle">Approve customer-requested account closures</p>
+      </div>
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="empty-state" *ngIf="closureRequests.length === 0">
+            <i class="bi bi-check-circle"></i>
+            <h6>No Closure Requests</h6>
+            <p style="font-size:13px;">No accounts are pending closure at this time.</p>
+          </div>
+          <div class="table-responsive" *ngIf="closureRequests.length > 0">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Account Number</th>
+                  <th>Holder Name</th>
+                  <th>Type</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let acc of closureRequests">
+                  <td><span style="font-family:monospace; font-weight:600;">{{ acc.accountNumber }}</span></td>
+                  <td>{{ acc.fullName }}</td>
+                  <td><span class="badge badge-checking">{{ acc.accountType }}</span></td>
+                  <td><span style="color:var(--warning);">₹{{ acc.balance | number:'1.2-2' }}</span></td>
+                  <td><span class="badge badge-status-pending">{{ acc.status }}</span></td>
+                  <td>
+                    <button class="btn btn-danger btn-sm" (click)="approveClosure(acc.id)">
+                      <i class="bi bi-x-circle"></i> Close Account
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== ALL TRANSACTIONS ============== -->
+    <div *ngIf="activeTab === 'transactions'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">All Transactions</h1>
+        <p class="page-subtitle">Monitor all account transactions across the bank</p>
+      </div>
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="table-responsive" *ngIf="allTransactions.length > 0">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Account ID</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th class="text-end">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tx of allTransactions">
+                  <td style="color:var(--dark-text-dim); font-size:12px;">{{ tx.createdAt | date:'dd MMM yyyy, HH:mm' }}</td>
+                  <td style="font-family:monospace; font-size:12px;">{{ tx.accountId }}</td>
+                  <td>
+                    <span class="badge"
+                      [class]="tx.transactionType === 'Deposit' ? 'badge-tx-deposit' :
+                               tx.transactionType === 'Withdraw' ? 'badge-tx-withdraw' :
+                               tx.transactionType === 'Transfer Sent' ? 'badge-tx-transfer-sent' :
+                               tx.transactionType === 'Transfer Received' ? 'badge-tx-transfer-received' :
+                               tx.transactionType === 'Loan Disbursement' ? 'badge-tx-disbursement' :
+                               tx.transactionType === 'Loan Repayment' ? 'badge-tx-repayment' : 'badge-tx-transfer'">
+                      {{ tx.transactionType }}
+                    </span>
+                  </td>
+                  <td style="color:var(--dark-text-dim); font-size:12px;">{{ tx.description || '—' }}</td>
+                  <td class="text-end">
+                    <span [class]="tx.transactionType === 'Deposit' || tx.transactionType === 'Transfer Received' || tx.transactionType === 'Loan Disbursement' ? 'text-success' : 'text-danger'">
+                      {{ tx.transactionType === 'Deposit' || tx.transactionType === 'Transfer Received' || tx.transactionType === 'Loan Disbursement' ? '+' : '-' }}₹{{ tx.amount | number:'1.2-2' }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="empty-state" *ngIf="allTransactions.length === 0">
+            <i class="bi bi-receipt"></i>
+            <h6>No Transactions</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== LOANS ============== -->
+    <div *ngIf="activeTab === 'loans'" class="animate-in">
+      <div class="page-header">
+        <h1 class="page-title">Loan Applications</h1>
+        <p class="page-subtitle">Review and make decisions on loan applications</p>
+      </div>
+
+      <!-- Creditworthiness Modal -->
+      <div class="modal-overlay" *ngIf="selectedLoan">
+        <div class="modal-box" style="max-width:600px;">
+          <div class="modal-title"><i class="bi bi-graph-up-arrow"></i> Creditworthiness Analysis</div>
+          <div class="row g-3 mb-3">
+            <div class="col-6"><div class="info-row"><span class="label">Applicant</span><span class="value">{{ selectedLoan.userName }}</span></div></div>
+            <div class="col-6"><div class="info-row"><span class="label">Loan Amount</span><span class="value">₹{{ selectedLoan.loanAmount | number:'1.2-2' }}</span></div></div>
+            <div class="col-6"><div class="info-row"><span class="label">Interest Rate</span><span class="value text-warning">{{ selectedLoan.interestRate }}%</span></div></div>
+            <div class="col-6"><div class="info-row"><span class="label">Tenure</span><span class="value">{{ selectedLoan.tenureMonths }} months</span></div></div>
+            <div class="col-12"><div class="info-row"><span class="label">Purpose</span><span class="value">{{ selectedLoan.purpose }}</span></div></div>
+            <div class="col-12"><div class="info-row"><span class="label">Account</span><span class="value" style="font-family:monospace;">{{ selectedLoan.accountNumber }}</span></div></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Score Display -->
+          <div *ngIf="creditworthinessScore" class="p-3 mb-3" style="border-radius:12px;"
+            [style.background]="creditworthinessScore.includes('HIGH') ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)'"
+            [style.border]="creditworthinessScore.includes('HIGH') ? '1px solid rgba(16,185,129,0.3)' : '1px solid rgba(239,68,68,0.3)'">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="bi" [class]="creditworthinessScore.includes('HIGH') ? 'bi-check-circle-fill text-success' : 'bi-exclamation-triangle-fill text-danger'"></i>
+              <strong>Credit Score: {{ creditworthinessScore }}</strong>
+            </div>
+            <p style="font-size:13px; color:var(--dark-text-dim); margin:0;">{{ creditworthinessDetails }}</p>
+          </div>
+
+          <div *ngIf="creditworthinessScore === 'Calculating...'" class="loading-overlay" style="padding:16px;">
+            <span class="spinner"></span> Analyzing transactions...
+          </div>
+
+          <div class="d-flex gap-3">
+            <button class="btn btn-success flex-1" (click)="approveLoan(selectedLoan.id)" style="flex:1">
+              <i class="bi bi-check-circle"></i> Approve & Disburse
+            </button>
+            <button class="btn btn-danger flex-1" (click)="rejectLoan(selectedLoan.id)" style="flex:1">
+              <i class="bi bi-x-circle"></i> Reject
+            </button>
+            <button class="btn btn-outline" (click)="selectedLoan = null">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="empty-state" *ngIf="pendingLoans.length === 0">
+            <i class="bi bi-cash-coin"></i>
+            <h6>No Pending Loans</h6>
+            <p style="font-size:13px;">All loan applications have been processed.</p>
+          </div>
+          <div class="table-responsive" *ngIf="pendingLoans.length > 0">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Applicant</th>
+                  <th>Amount</th>
+                  <th>Purpose</th>
+                  <th>Rate</th>
+                  <th>Tenure</th>
+                  <th>Account</th>
+                  <th>Applied On</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let loan of pendingLoans">
+                  <td style="font-weight:600;">{{ loan.userName || '—' }}</td>
+                  <td style="color:var(--success); font-weight:700;">₹{{ loan.loanAmount | number:'1.0-0' }}</td>
+                  <td style="font-size:12px; color:var(--dark-text-dim);">{{ loan.purpose }}</td>
+                  <td><span class="badge badge-status-pending">{{ loan.interestRate }}%</span></td>
+                  <td style="font-size:12px;">{{ loan.tenureMonths }}m</td>
+                  <td style="font-family:monospace; font-size:12px;">{{ loan.accountNumber }}</td>
+                  <td style="color:var(--dark-text-dim); font-size:12px;">{{ loan.createdAt | date:'dd MMM yyyy' }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="checkCreditworthiness(loan)">
+                      <i class="bi bi-graph-up-arrow"></i> Review
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

@@ -1,0 +1,185 @@
+/* Glassmorphic Bank Card Designs */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.bank-card {
+  position: relative;
+  width: 340px;
+  height: 210px;
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  user-select: none;
+}
+
+.bank-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+/* Card Themes */
+.classic-card {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.platinum-card {
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.gold-card {
+  background: linear-gradient(135deg, #d4af37 0%, #85581A 100%);
+  border: 1px solid rgba(255,215,0,0.3);
+}
+
+/* Card Details */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-brand {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-type-label {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.8;
+  background: rgba(255,255,255,0.15);
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #e0a96d 0%, #cf8d3c 100%);
+  border-radius: 6px;
+  margin-top: 10px;
+  position: relative;
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.4);
+}
+
+.card-chip::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+.card-number {
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 2px;
+  margin: 16px 0 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.card-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.card-holder-name {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-expiry-box {
+  text-align: right;
+}
+
+.card-expiry-label {
+  font-size: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: block;
+}
+
+.card-expiry-value {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Frozen Card Overlay */
+.frozen-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  z-index: 2;
+  color: #f87171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.frozen-overlay i {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+/* Card Control Panel */
+.card-controls {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.card-controls button {
+  flex: 1;
+}
+
+/* Glassmorphism modal */
+.custom-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.custom-modal {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease-out;
+}
