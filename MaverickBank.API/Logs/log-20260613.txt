@@ -1,0 +1,41 @@
+2026-06-13 09:41:53.027 +05:30 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'Account'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-13 09:41:53.179 +05:30 [WRN] No store type was specified for the decimal property 'InterestRate' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-13 09:41:53.185 +05:30 [WRN] No store type was specified for the decimal property 'LoanAmount' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-13 09:41:53.189 +05:30 [WRN] No store type was specified for the decimal property 'RemainingBalance' on entity type 'Loan'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-13 09:41:53.193 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-13 09:41:54.888 +05:30 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-13 09:41:54.994 +05:30 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-13 09:41:55.024 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-13 09:41:55.037 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-13 09:41:55.164 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-13 09:41:55.226 +05:30 [INF] No migrations were applied. The database is already up to date.
+2026-06-13 09:41:56.013 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-13 09:41:56.149 +05:30 [INF] User profile is available. Using 'C:\Users\lohan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-13 09:41:57.311 +05:30 [INF] Now listening on: https://localhost:7174
+2026-06-13 09:41:57.758 +05:30 [INF] Now listening on: http://localhost:5099
+2026-06-13 09:41:58.197 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-13 09:41:58.196 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/index.html - null null
+2026-06-13 09:41:58.557 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-13 09:41:58.666 +05:30 [INF] Hosting environment: Development
+2026-06-13 09:41:58.682 +05:30 [INF] Content root path: C:\Users\lohan\OneDrive\Documents\New folder\MaverickBank\MaverickBank\MaverickBank.API
+2026-06-13 09:41:59.118 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 966.1325ms
+2026-06-13 09:41:59.165 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-13 09:41:59.165 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/_vs/browserLink - null null
+2026-06-13 09:41:59.166 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/index.html - 200 null text/html;charset=utf-8 1019.2783ms
+2026-06-13 09:41:59.242 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 77.1082ms
+2026-06-13 09:41:59.543 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 379.0845ms
+2026-06-13 09:41:59.643 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - null null
+2026-06-13 09:41:59.796 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 154.157ms
