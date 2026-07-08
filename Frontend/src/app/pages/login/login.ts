@@ -19,9 +19,6 @@ export class Login implements OnInit {
   showPassword: boolean = false;
   rememberMe: boolean = false;
 
-  // Role selector
-  selectedRole: string = 'Customer';
-
   // Forgot Password feature
   showForgotModal: boolean = false;
   forgotEmail: string = '';
@@ -39,21 +36,6 @@ export class Login implements OnInit {
     if (savedEmail) {
       this.email = savedEmail;
       this.rememberMe = true;
-    }
-    // Set default customer credentials
-    this.onRoleChange();
-  }
-
-  onRoleChange() {
-    if (this.selectedRole === 'Customer') {
-      this.email = 'lohanraj.b@gmail.com';
-      this.password = '@Lohan123';
-    } else if (this.selectedRole === 'Employee') {
-      this.email = 'employee@maverick.com';
-      this.password = 'Employee@123';
-    } else if (this.selectedRole === 'Admin') {
-      this.email = 'admin@maverick.com';
-      this.password = 'Admin@123';
     }
   }
 
