@@ -24,6 +24,8 @@ export class EmployeeDashboard implements OnInit {
   closureRequests: any[] = [];
   pendingLoans: any[] = [];
   allTransactions: any[] = [];
+  usersList: any[] = [];
+  activePaybackLoans: any[] = [];
 
   selectedLoan: any = null;
   creditworthinessScore: string = '';
@@ -46,6 +48,28 @@ export class EmployeeDashboard implements OnInit {
   loadData() {
     const headers = this.getHeaders();
 
+    // Fetch all users to map names
+    this.http.get(`${this.API}/Users`, { headers }).subscribe({
+      next: (users: any) => {
+        this.usersList = users;
+        const userMap = new Map<number, string>();
+        users.forEach((u: any) => userMap.set(u.id, u.fullName));
+
+        // Fetch loans and map names
+        this.http.get(`${this.API}/Loans`, { headers }).subscribe({
+          next: (loans: any) => {
+            loans.forEach((l: any) => {
+              l.userName = userMap.get(l.userId) || 'Unknown Customer';
+            });
+            this.pendingLoans = loans.filter((l: any) => l.loanStatus === 'Pending');
+            this.activePaybackLoans = loans.filter((l: any) => l.loanStatus === 'Approved' && l.remainingBalance > 0);
+          },
+          error: (err) => console.error(err)
+        });
+      },
+      error: (err) => console.error(err)
+    });
+
     this.http.get(`${this.API}/Accounts`, { headers }).subscribe({
       next: (res: any) => { this.pendingAccounts = res.filter((a: any) => a.status === 'Pending'); },
       error: (err) => console.error(err)
@@ -53,11 +77,6 @@ export class EmployeeDashboard implements OnInit {
 
     this.http.get(`${this.API}/Accounts/closurerequests`, { headers }).subscribe({
       next: (res: any) => { this.closureRequests = res; },
-      error: (err) => console.error(err)
-    });
-
-    this.http.get(`${this.API}/Loans`, { headers }).subscribe({
-      next: (res: any) => { this.pendingLoans = res.filter((l: any) => l.loanStatus === 'Pending'); },
       error: (err) => console.error(err)
     });
 

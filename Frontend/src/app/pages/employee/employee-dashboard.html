@@ -139,6 +139,127 @@
           </div>
         </div>
       </div>
+
+      <!-- Checklist & Outstanding Loans -->
+      <div class="row g-4 mt-2">
+        <!-- Checklist panel -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-header">
+              <i class="bi bi-list-task me-2 text-warning"></i>Pending Tasks Checklist
+            </div>
+            <div class="card-body">
+              <!-- If all items are processed -->
+              <div class="text-center py-4" *ngIf="pendingAccounts.length === 0 && pendingLoans.length === 0 && closureRequests.length === 0">
+                <div style="background: rgba(16, 185, 129, 0.15); color: #10b981; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                  <i class="bi bi-check-all"></i>
+                </div>
+                <h6 style="font-weight: 700; color: #fff;">All Caught Up!</h6>
+                <p style="font-size: 12px; color: var(--dark-text-dim); margin-bottom: 0;">No pending account, loan, or closure requests needing attention.</p>
+              </div>
+
+              <!-- List of tasks -->
+              <div class="d-flex flex-column gap-3" *ngIf="pendingAccounts.length > 0 || pendingLoans.length > 0 || closureRequests.length > 0">
+                <!-- Task 1: Accounts -->
+                <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+                  <div [class]="pendingAccounts.length > 0 ? 'text-warning' : 'text-success'" style="font-size: 20px;">
+                    <i [class]="pendingAccounts.length > 0 ? 'bi bi-dash-circle-fill' : 'bi bi-check-circle-fill'"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size: 13.5px; font-weight: 600; color: #fff;">Account Registrations</div>
+                    <div style="font-size: 11px; color: var(--dark-text-dim);">
+                      {{ pendingAccounts.length > 0 ? pendingAccounts.length + ' requests awaiting review' : 'All registrations reviewed' }}
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-xs" *ngIf="pendingAccounts.length > 0" (click)="activeTab = 'pending'">Process</button>
+                </div>
+
+                <!-- Task 2: Loans -->
+                <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+                  <div [class]="pendingLoans.length > 0 ? 'text-warning' : 'text-success'" style="font-size: 20px;">
+                    <i [class]="pendingLoans.length > 0 ? 'bi bi-dash-circle-fill' : 'bi bi-check-circle-fill'"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size: 13.5px; font-weight: 600; color: #fff;">Loan Applications</div>
+                    <div style="font-size: 11px; color: var(--dark-text-dim);">
+                      {{ pendingLoans.length > 0 ? pendingLoans.length + ' applications awaiting decision' : 'All applications processed' }}
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-xs" *ngIf="pendingLoans.length > 0" (click)="activeTab = 'loans'">Process</button>
+                </div>
+
+                <!-- Task 3: Closures -->
+                <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+                  <div [class]="closureRequests.length > 0 ? 'text-warning' : 'text-success'" style="font-size: 20px;">
+                    <i [class]="closureRequests.length > 0 ? 'bi bi-dash-circle-fill' : 'bi bi-check-circle-fill'"></i>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size: 13.5px; font-weight: 600; color: #fff;">Closure Requests</div>
+                    <div style="font-size: 11px; color: var(--dark-text-dim);">
+                      {{ closureRequests.length > 0 ? closureRequests.length + ' closure requests active' : 'All closure requests processed' }}
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-xs" *ngIf="closureRequests.length > 0" (click)="activeTab = 'closure'">Process</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active payback loans panel -->
+        <div class="col-md-8">
+          <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-cash-stack me-2 text-success"></i>Active Outstanding Loans (Pending Payback)</span>
+              <span class="badge badge-status-active">{{ activePaybackLoans.length }} Active</span>
+            </div>
+            <div class="card-body p-0">
+              <!-- Empty state -->
+              <div class="text-center py-5" *ngIf="activePaybackLoans.length === 0">
+                <i class="bi bi-cash" style="font-size: 40px; color: var(--dark-text-dim); display: block; margin-bottom: 8px;"></i>
+                <h6 style="color: #fff; font-weight: 600;">No Active Outstanding Loans</h6>
+                <p style="font-size: 12px; color: var(--dark-text-dim); margin-bottom: 0;">There are no approved loans with a remaining balance in the system.</p>
+              </div>
+
+              <!-- Loan list table -->
+              <div class="table-responsive" *ngIf="activePaybackLoans.length > 0">
+                <table class="table mb-0" style="font-size: 13px;">
+                  <thead>
+                    <tr>
+                      <th>Customer Name</th>
+                      <th>Account</th>
+                      <th>Approved Loan</th>
+                      <th>Remaining Balance</th>
+                      <th>Payback Progress</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let loan of activePaybackLoans">
+                      <td style="font-weight: 600; color: #fff;">{{ loan.userName }}</td>
+                      <td style="font-family: monospace; font-size: 12px;">{{ loan.accountNumber }}</td>
+                      <td style="font-weight: 600; color: var(--success);">₹{{ loan.loanAmount | number:'1.0-0' }}</td>
+                      <td style="font-weight: 600; color: var(--warning);">₹{{ loan.remainingBalance | number:'1.0-0' }}</td>
+                      <td>
+                        <div class="d-flex align-items-center gap-2" style="width: 140px;">
+                          <!-- Progress Bar -->
+                          <div style="flex:1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; position: relative;">
+                            <div style="height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 4px;"
+                                 [style.width.%]="((loan.loanAmount - loan.remainingBalance) / loan.loanAmount) * 100">
+                            </div>
+                          </div>
+                          <span style="font-size: 11px; font-weight: 600; color: var(--dark-text-dim); min-width: 32px; text-align: right;">
+                            {{ (((loan.loanAmount - loan.remainingBalance) / loan.loanAmount) * 100) | number:'1.0-0' }}%
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ============== PENDING ACCOUNTS ============== -->
