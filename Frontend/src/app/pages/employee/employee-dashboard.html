@@ -244,7 +244,7 @@
                           <!-- Progress Bar -->
                           <div style="flex:1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; position: relative;">
                             <div style="height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 4px;"
-                                 [style.width.%]="((loan.loanAmount - loan.remainingBalance) / loan.loanAmount) * 100">
+                                 [style.width]="(loan.loanAmount ? (((loan.loanAmount - loan.remainingBalance) / loan.loanAmount) * 100) : 0) + '%'">
                             </div>
                           </div>
                           <span style="font-size: 11px; font-weight: 600; color: var(--dark-text-dim); min-width: 32px; text-align: right;">

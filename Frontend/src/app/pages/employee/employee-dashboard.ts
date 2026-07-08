@@ -51,18 +51,34 @@ export class EmployeeDashboard implements OnInit {
     // Fetch all users to map names
     this.http.get(`${this.API}/Users`, { headers }).subscribe({
       next: (users: any) => {
+        console.log('Fetched users:', users);
         this.usersList = users;
-        const userMap = new Map<number, string>();
-        users.forEach((u: any) => userMap.set(u.id, u.fullName));
+        const userMap = new Map<string, string>();
+        users.forEach((u: any) => {
+          const uId = u.id !== undefined ? u.id : u.Id;
+          const fullName = u.fullName || u.FullName || '';
+          if (uId !== undefined) {
+            userMap.set(String(uId), fullName);
+          }
+        });
 
         // Fetch loans and map names
         this.http.get(`${this.API}/Loans`, { headers }).subscribe({
           next: (loans: any) => {
+            console.log('Fetched loans:', loans);
             loans.forEach((l: any) => {
-              l.userName = userMap.get(l.userId) || 'Unknown Customer';
+              const loanUserId = l.userId !== undefined ? l.userId : l.UserId;
+              l.userName = userMap.get(String(loanUserId)) || 'Unknown Customer';
             });
-            this.pendingLoans = loans.filter((l: any) => l.loanStatus === 'Pending');
-            this.activePaybackLoans = loans.filter((l: any) => l.loanStatus === 'Approved' && l.remainingBalance > 0);
+            this.pendingLoans = loans.filter((l: any) => {
+              const status = l.loanStatus || l.LoanStatus;
+              return status === 'Pending';
+            });
+            this.activePaybackLoans = loans.filter((l: any) => {
+              const status = l.loanStatus || l.LoanStatus;
+              const balance = l.remainingBalance !== undefined ? l.remainingBalance : l.RemainingBalance;
+              return status === 'Approved' && balance > 0;
+            });
           },
           error: (err) => console.error(err)
         });
