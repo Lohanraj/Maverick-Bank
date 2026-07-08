@@ -110,7 +110,17 @@ export class Login implements OnInit {
       },
       error: (error) => {
         this.isLoading = false;
-        this.errorMessage = error?.error || 'Invalid email or password. Please try again.';
+        if (error && error.error) {
+          if (typeof error.error === 'string') {
+            this.errorMessage = error.error + '. Please try again.';
+          } else if (error.error.message) {
+            this.errorMessage = error.error.message;
+          } else {
+            this.errorMessage = 'Invalid email or password. Please try again.';
+          }
+        } else {
+          this.errorMessage = 'Invalid email or password. Please try again.';
+        }
       }
     });
   }
