@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -11,12 +11,16 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
-export class Login {
+export class Login implements OnInit {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
   isLoading: boolean = false;
   showPassword: boolean = false;
+  rememberMe: boolean = false;
+
+  // Role selector
+  selectedRole: string = 'Customer';
 
   // Forgot Password feature
   showForgotModal: boolean = false;
@@ -29,6 +33,29 @@ export class Login {
   private readonly API = 'https://localhost:7174/api';
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  ngOnInit() {
+    const savedEmail = localStorage.getItem('rememberedEmail');
+    if (savedEmail) {
+      this.email = savedEmail;
+      this.rememberMe = true;
+    }
+    // Set default customer credentials
+    this.onRoleChange();
+  }
+
+  onRoleChange() {
+    if (this.selectedRole === 'Customer') {
+      this.email = 'lohanraj.b@gmail.com';
+      this.password = '@Lohan123';
+    } else if (this.selectedRole === 'Employee') {
+      this.email = 'employee@maverick.com';
+      this.password = 'Employee@123';
+    } else if (this.selectedRole === 'Admin') {
+      this.email = 'admin@maverick.com';
+      this.password = 'Admin@123';
+    }
+  }
 
   openForgotModal(event: Event) {
     event.preventDefault();
@@ -84,6 +111,12 @@ export class Login {
         localStorage.setItem('token', response.token);
         localStorage.setItem('role', response.role);
         localStorage.setItem('user', JSON.stringify(response));
+
+        if (this.rememberMe) {
+          localStorage.setItem('rememberedEmail', this.email);
+        } else {
+          localStorage.removeItem('rememberedEmail');
+        }
 
         if (response.role === 'Admin') {
           this.router.navigate(['/admin']);

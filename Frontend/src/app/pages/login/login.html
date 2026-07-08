@@ -1,85 +1,147 @@
-<div class="auth-bg">
-  <div class="auth-card animate-in">
+<div class="split-container">
 
-    <!-- Logo -->
-    <div class="auth-logo">
-      <div class="auth-logo-icon">
-        <i class="bi bi-bank2"></i>
+  <!-- LEFT PANEL: Brand Info & Promotion -->
+  <div class="brand-panel">
+    <div class="brand-content animate-in">
+      <div class="brand-badge">
+        <i class="bi bi-shield-fill-check"></i> Secure Banking Session
+      </div>
+      <h1 class="brand-title">Maverick Bank</h1>
+      <h2 class="brand-tagline">Manage your wealth, securely and faster.</h2>
+      <p class="brand-description">
+        Access your premium retail dashboard to transfer funds, customize credit and debit card limits, apply for instant loans, and monitor account transactions in one place.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <div>
+            <div class="feature-title">Instant Transfers</div>
+            <div class="feature-desc">Send funds to any internal or external account securely.</div>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="bi bi-credit-card-2-front-fill"></i>
+          </div>
+          <div>
+            <div class="feature-title">Complete Card Control</div>
+            <div class="feature-desc">Freeze cards, set custom ATM limits, and update security PINs.</div>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="bi bi-wallet2"></i>
+          </div>
+          <div>
+            <div class="feature-title">Fast Loan Decisions</div>
+            <div class="feature-desc">Get automated reviews and immediate disbursements directly to your balance.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="text-center mb-2">
-      <h1 class="auth-title">Maverick Bank</h1>
-    </div>
-    <p class="auth-subtitle">Sign in to your account to continue</p>
+  </div>
 
-    <!-- Error Alert -->
-    <div class="alert alert-danger" *ngIf="errorMessage">
-      <i class="bi bi-exclamation-circle-fill"></i>
-      {{ errorMessage }}
-    </div>
-
-    <!-- Email -->
-    <div class="form-group">
-      <label class="form-label">Email Address</label>
-      <div class="input-group-icon">
-        <i class="bi bi-envelope icon"></i>
-        <input
-          id="login-email"
-          type="email"
-          class="form-control"
-          placeholder="Enter your email"
-          [(ngModel)]="email"
-          name="email"
-          autocomplete="email">
+  <!-- RIGHT PANEL: Login Form -->
+  <div class="form-panel">
+    <div class="auth-card animate-in">
+      <!-- Logo -->
+      <div class="auth-logo mb-3">
+        <div class="auth-logo-icon">
+          <i class="bi bi-bank2"></i>
+        </div>
+        <div class="auth-title" style="font-size:24px;">Welcome Back</div>
       </div>
-    </div>
+      <p class="auth-subtitle mb-4">Sign in to continue your secure journey</p>
 
-    <!-- Password -->
-    <div class="form-group">
-      <div class="d-flex justify-content-between align-items-center mb-1">
-        <label class="form-label mb-0">Password</label>
-        <a href="#" class="text-primary" style="font-size:12px; text-decoration:none;" (click)="openForgotModal($event)">Forgot password?</a>
+      <!-- Error Alert -->
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        {{ errorMessage }}
       </div>
-      <div class="input-group-icon">
-        <i class="bi bi-lock icon"></i>
-        <input
-          id="login-password"
-          [type]="showPassword ? 'text' : 'password'"
-          class="form-control"
-          placeholder="Enter your password"
-          [(ngModel)]="password"
-          name="password"
-          style="padding-right: 44px;"
-          autocomplete="current-password">
-        <i
-          class="bi icon"
-          [class]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
-          style="right:14px; left:auto; cursor:pointer;"
-          (click)="showPassword = !showPassword"></i>
+
+      <!-- Login As Role Selector -->
+      <div class="form-group">
+        <label class="form-label">Login As</label>
+        <select class="form-select" [(ngModel)]="selectedRole" (change)="onRoleChange()">
+          <option value="Customer">Customer (Lohan B)</option>
+          <option value="Employee">Bank Employee</option>
+          <option value="Admin">System Admin</option>
+        </select>
       </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <div class="input-group-icon">
+          <i class="bi bi-envelope icon"></i>
+          <input
+            id="login-email"
+            type="email"
+            class="form-control"
+            placeholder="Enter your email"
+            [(ngModel)]="email"
+            name="email"
+            autocomplete="email">
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <label class="form-label mb-0">Password</label>
+          <a href="#" class="text-primary" style="font-size:12px; text-decoration:none;" (click)="openForgotModal($event)">Forgot password?</a>
+        </div>
+        <div class="input-group-icon">
+          <i class="bi bi-lock icon"></i>
+          <input
+            id="login-password"
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Enter your password"
+            [(ngModel)]="password"
+            name="password"
+            style="padding-right: 44px;"
+            autocomplete="current-password">
+          <i
+            class="bi icon"
+            [class]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+            style="right:14px; left:auto; cursor:pointer;"
+            (click)="showPassword = !showPassword"></i>
+        </div>
+      </div>
+
+      <!-- Remember Me -->
+      <div class="d-flex align-items-center mb-3">
+        <input type="checkbox" id="remember-me" [(ngModel)]="rememberMe" style="width:16px; height:16px; margin-right:8px; cursor:pointer;">
+        <label for="remember-me" style="font-size:13px; color:var(--dark-text-dim); cursor:pointer; user-select:none;">Remember me</label>
+      </div>
+
+      <!-- Login Button -->
+      <button
+        id="login-btn"
+        type="button"
+        class="btn btn-primary btn-full mt-2"
+        (click)="login()"
+        [disabled]="isLoading">
+        <span class="spinner" *ngIf="isLoading"></span>
+        <i class="bi bi-box-arrow-in-right" *ngIf="!isLoading"></i>
+        {{ isLoading ? 'Signing in...' : 'Sign In' }}
+      </button>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Register Link -->
+      <p class="text-center mb-0" style="font-size:13px; color: var(--dark-text-dim);">
+        Don't have an account?
+        <a routerLink="/register" class="text-primary" style="font-weight:600; text-decoration:none;"> Create one</a>
+      </p>
     </div>
-
-    <!-- Login Button -->
-    <button
-      id="login-btn"
-      type="button"
-      class="btn btn-primary btn-full mt-2"
-      (click)="login()"
-      [disabled]="isLoading">
-      <span class="spinner" *ngIf="isLoading"></span>
-      <i class="bi bi-box-arrow-in-right" *ngIf="!isLoading"></i>
-      {{ isLoading ? 'Signing in...' : 'Sign In' }}
-    </button>
-
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Register Link -->
-    <p class="text-center" style="font-size:13px; color: var(--dark-text-dim);">
-      Don't have an account?
-      <a routerLink="/register" class="text-primary" style="font-weight:600; text-decoration:none;"> Create one</a>
-    </p>
-
   </div>
 
   <!-- Forgot Password Modal -->
