@@ -235,7 +235,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let loan of activePaybackLoans">
-                      <td style="font-weight: 600; color: #fff;">{{ loan.userName }}</td>
+                      <td style="font-weight: 600; color: #818cf8;">{{ loan.userName }}</td>
                       <td style="font-family: monospace; font-size: 12px;">{{ loan.accountNumber }}</td>
                       <td style="font-weight: 600; color: var(--success);">₹{{ loan.loanAmount | number:'1.0-0' }}</td>
                       <td style="font-weight: 600; color: var(--warning);">₹{{ loan.remainingBalance | number:'1.0-0' }}</td>
