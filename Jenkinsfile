@@ -46,10 +46,10 @@ pipeline {
                     echo 'Installing npm dependencies and building frontend...'
                     script {
                         if (isUnix()) {
-                            sh 'npm install'
+                            sh 'npm install --include=dev'
                             sh 'npm run build'
                         } else {
-                            bat 'npm install'
+                            bat 'npm install --include=dev'
                             bat 'npm run build'
                         }
                     }
