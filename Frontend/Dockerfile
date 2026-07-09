@@ -1,27 +1,27 @@
-# Stage 1: Build the Angular application
+# Stage 1: Build the React application
 FROM node:20-alpine AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies (using npm ci for clean, repeatable builds)
-RUN npm ci
+# Install dependencies
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the Angular application
-RUN npm run build -- --configuration=production
+# Build the React application
+RUN npm run build
 
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine
 
-# Copy custom nginx configuration for Angular routing fallback
+# Copy custom nginx configuration for SPA routing fallback
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built static files to Nginx public folder
-COPY --from=build /app/dist/MaverickBankUI/browser /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
