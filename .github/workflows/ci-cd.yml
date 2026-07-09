@@ -21,7 +21,9 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: |
+          8.0.x
+          10.0.x
 
     - name: Restore NuGet Packages
       run: dotnet restore
@@ -70,7 +72,7 @@ jobs:
 
     - name: Validate Backend Dockerfile
       run: |
-        docker build -t maverick-bank-api:test -f Backend/MaverickBank.API/Dockerfile Backend
+        docker build -t maverick-bank-api:test -f Backend/MaverickBank.API/Dockerfile Backend/MaverickBank.API
 
     - name: Validate Frontend Dockerfile
       run: |
